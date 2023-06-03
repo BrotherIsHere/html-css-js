@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 我们可以通过js修改元素的大小.颜色.位置等样式 -->
+    <!-- element.style 行内样式操作(少量修改) -->
+    <!-- element.className 类名样式修改(修改大量) -->
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div=document.querySelector('div');
+        div.onclick=function() {
+            this.style.backgroundColor='green';
+            div.style.width='300px';
+        }
+        // js里面的样式采取驼峰命名法,比如fontSize backgroundColor
+        // js修改style样式操作,产生的是行内样式,css权重比较高
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 调用已有的判断闰年的函数,来编写二月天数的函数
+        function getDays(){
+            var year=prompt('请输入年份:');
+            if (leapyear(year)){
+                alert (year+'年是闰年二月份是29天');
+            } else {
+                alert (year+'年是平年,二月份是28天');
+            }
+        }
+        getDays()
+
+        // 判断闰年
+        function leapyear (year){
+            var flag=false;
+            if (year%4==0 && year%100 !=0 || year % 400 == 0){
+                flag=true
+            }
+            return flag
+        }
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

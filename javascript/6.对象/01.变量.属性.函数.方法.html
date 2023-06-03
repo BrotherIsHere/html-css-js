@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //对象是复杂数据类型object,是一组无序的相关属性和方法的集合
+        //构造函数泛指某一大类,比如苹果,对象特指一个事物比如这个苹果
+        //对象分为三种:自定义对象,内置对象,浏览器对象
+        //变量 属性 函数 方法总结:
+        // 一.变量和属性都是用来存储数据的
+        var num=10;  //声明变量
+        var obj={    //利用字面量创建对象 (具体事物)
+            age:18,   //属性(名词,对象的特点等等,是什么,多大,什么底色)
+            sex:'男',  // 用','号分开,用':'组成键值对
+            fn : function(){    //方法(动词,于什么,做什么),函数名前置
+                console.log('hello');
+            }
+        }
+        function fn (){       //函数
+            console.log('hi');
+        }
+
+        console.log(num);
+        console.log(obj.age);
+        //或
+        console.log(obj['age']);
+        fn()  //函数调用
+        obj.fn()  //方法调用
+        //变量单独声明并赋值,使用时直接写变量名
+        //属性不需要声明,使用时 对象.属性 或者 对象['属性']
+        //二.函数和方法都是实现某种功能,做某件事
+        //函数单独声明,单独存在,调用时 函数名()
+        //方法在对象中,调用时 对象.方法()
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

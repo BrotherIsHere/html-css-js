@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            margin: 100px auto;
+        }
+         
+        .mess {
+            display: inline-block;
+            color: #999;
+            font-size: 12px;
+            padding-left: 20px;
+            background: url(img/ms.png) no-repeat;
+        }
+        .worrn {
+            color: red;
+            background: url(img/c.png) no-repeat;
+        }
+        .right{
+            color: green;
+            background: url(img/o.png) no-repeat;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="password" class="ipt">
+        <p class="mess">请输入6-16位密码</p>
+    </div>
+    <script>
+        var ipt=document.querySelector('.ipt');
+        var message=document.querySelector('.mess');
+        ipt.onblur=function(){
+            if (this.value.length<6 ||this.value.length>16){
+                message.innerHTML='错误!密码必须是6-16位';
+                message.className='mess worrn'
+            } else {
+                message.innerHTML='输入正确';
+                message.className='mess right'
+            }
+        }
+    </script>
+</body>
+</html>

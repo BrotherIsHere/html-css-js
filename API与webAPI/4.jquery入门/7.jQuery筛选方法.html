@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <!-- 
+        jQuery筛选方法()
+        .parent()  $('li').parent() 查找父级
+        .chidren(selector) $('ul').children('li') 相当于$('ul>li'),亲儿子
+        .find(selector) $('ul').find('li') 相当于$('ul li'),后代选择器
+        .siblings(selector) $('.first').sibilings 相当于兄弟节点,不包括自己
+        .nextAll([expr]) $('.first').nextAll() 之后的所有同辈元素
+        .prevtAll([expr]) $('.first').prevtAll() 之前的所有同辈元素
+        .hasClass(class)  $('div').hasClass('protected') 检查当前元素是否含有某个特定的类,有为true
+        .eq(index) $('li').eq(2) 相当于$('li:eq(2)') 从0开始
+
+     -->
+    <div class="father">
+        <div class="son">儿子</div>
+    </div>
+    <div class="nav">
+        <p>我是屁</p>
+        <div>
+            <p>我是p</p>
+        </div>
+    </div>
+    <script>
+        //注意方法都带括号
+        $(function(){
+            //1.父  parent()
+            f=$('.son').parent();
+            console.log(f);
+            //2.子
+            $('.nav').children('p').css('color','green');
+            $('.nav').find('p').css('color','red');
+            //3.兄
+            $('.nav').siblings().css('color','blue');
+            
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 10px solid red;
+            /* padding会撑大盒子 */
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+</body>
+    <div></div>
+    <script>
+        //client系列属性
+        //element.clientTop 返回元素上边框的大小
+        //element.clientLeft 返回元素左边框的大小
+        //element.clientWidth 返回自身包括padding,内容区的宽度,不含边框不带单位
+        //element.clientHeight 返回自身包括padding,内容区的高度,不含边框不带单位
+
+        var div=document.querySelector('div');
+        console.log(div.clientTop);
+        console.log(div.clientLeft);
+        //clientWidth秘offsetWidth的最大区别是不包含边框
+        console.log(div.clientWidth);
+        console.log(div.clientHeight);
+
+    </script>
+</html>

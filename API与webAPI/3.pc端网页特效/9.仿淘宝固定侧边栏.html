@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ 
+        .slider-bar {
+            position: absolute;
+            top: 220px;
+            /* 盒子紧贴右侧算法 */
+            left: 50%;   /*整个页面的一半*/
+            margin-left: 500px;  /*加上文档内容区域的一半,用margin-left来实现*/
+            width: 30px;
+            height: 100px;
+            background-color: rgb(247, 249, 234);
+            border: 1px solid black;
+        }
+        
+        .goback {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            font-size: 7px;
+            background-color: bisque;
+        }
+        .header {
+            width: 1000px;
+            height: 100px;
+            background-color: rgb(243, 190, 190);
+            margin: 10px auto;
+        }
+        .banner {
+            width: 1000px;
+            height: 200px;
+            background-color: rgb(31, 225, 144);
+            margin: 10px auto;
+        }
+        .main {
+            width: 1000px;
+            height: 800px;
+            background-color: rgb(137, 72, 228);
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <div class="slider-bar">
+        <!-- 点击返回顶部链接转向顶部锚点  链接#header转向对应锚点id=header -->
+        <!-- <span class="goback"><a href="#header">返回顶部</a> </span> -->
+        <!-- 方法2:利用js,点击返回顶部,页面就滚动到页面的最上方 -->
+        <span class="goback">返回顶部 </span>
+
+    </div>
+    <div class="header" id="header">头部区域</div>
+    <div class="banner">banner区域</div>
+    <div class="main">主体部分</div>
+    <script>
+        //1.获取元素
+        var slider=document.querySelector('.slider-bar');
+        var banner=document.querySelector('.banner');
+        var main=document.querySelector('.main');
+        var goback=document.querySelector('.goback');
+        //2.页面滚动事件 滑块到过某一位置时固定不动及显示'返回顶部'字样的距离
+        bannerX=banner.offsetTop;  //banner到页面顶部距离,即滑块开始固定定位的距离
+        mainX=main.offsetTop;      //main到页面顶部距离,此时显示'返回顶部'字样的距离
+        slider_x=slider.offsetTop-bannerX;   //滑块固定时的位置
+        // console.log(bannerX,mainX);
+        
+        //3滚动事件 页面卷去一定距离时固定及显示'返回顶部'的执行模块
+        document.addEventListener('scroll',function(){
+            //window.pageYOffset 页面被卷去的头部大小(window.pageXOffset)
+            // console.log(window.pageYOffset);
+            //滑块到某一位置固定不动
+            if (window.pageYOffset>=bannerX){    //页面头部被卷去的距离等于bannerX时
+                slider.style.position='fixed';    //滑块变为固定定位(不是绝对定位)
+                slider.style.top=slider_x+'px';   //固定定位时x的值
+            } else {
+                slider.style.position='absolute';  //还原原始值
+                slider.style.top='220px'
+            }
+            //滑块到某一位置时显示'返回顶部'
+            if (window.pageYOffset>=mainX){       //被卷去的距离等于mainX时
+                goback.style.display='block';     //显示goback盒子
+            } else {
+                goback.style.display='none';      //隐藏goback盒子
+            }
+
+        })
+        //4.点击返回顶部,页面缓慢滚动到顶部(利用js)  window.scroll(x,y)
+        // goback.addEventListener('click',function(){
+            // alert(1);
+            // window.scroll(0,100); 
+            //返回到100的位置
+            //返回顶部 极快速
+            // window.scroll(0,0);
+        // })
+        
+        // 慢慢滚动到顶部用动画函数
+        goback.addEventListener('click',function(){
+            animate(window,0);
+        })
+        //(缓动)动画函数
+        function animate(obj,target,callback){   //元素 停止位置值  callback回调函数(结束时调用的函数)
+            //问题:点击qqqq越多,开启的定时器越多,移动的越快
+            //解决方法:先清除以前的定时器,只保留当前的定时器
+            // callback()  //普通函数,不是回调函数,结束调用才是回调函数 调用函数用()
+            clearInterval(obj.timer)
+            //将var timer变为obj.timer
+            obj.timer=setInterval(function() {  //间隔定时器
+                //缓动时步长逐渐减小
+                var step= (target-window.pageYOffset)/15;
+                //步长值取整,大于0时往大取整Math.ceil,负数时往小取整(三元表达式);
+                step=step>0? Math.ceil(step) :Math.floor(step);
+                //定时器停止条件
+                if (window.pageYOffset==target){
+                    // 停止定时器
+                    clearInterval(obj.timer);
+
+                    // if (callback){
+                    //     callback();
+                    // }
+                    //callback高级写法
+                    callback&&callback();  //短路与
+                }
+                //把每次步长加固定值改为一个慢慢变小的值会实现缓动动画
+                //window.scroll(),窗口位置
+                window.scroll(0,window.pageYOffset+step); //盒子当前的位置
+            }, 30);
+        }
+    </script>
+</body>
+</html>

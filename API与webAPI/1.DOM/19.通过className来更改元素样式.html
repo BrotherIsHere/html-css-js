@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 130px;
+            height: 40px;
+            background-color: aqua;
+        }
+        
+        .change {
+            background-color: blue;
+            color: burlywood;
+            font-size: 44px;
+            width: 222px;
+            height: 333px;
+        }
+
+        .margin {
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="margin">文本</div>
+    <script>
+        // 如果样式较少,可用element.style来修改样式,若更改较多则比较麻烦可用className来更改
+        // 点击更改较多样式
+
+        var test=document.querySelector('div');
+        // test.onclick=function(){
+        //     this.style.backgroundColor='purple';
+        //     this.style.color='#fff';
+        //     this.style.fontSize='25px';
+        //     this.style.marginTop='100px';
+        //     this.style.width="300px";
+        //     this.style.height='150px';
+        // }
+
+        // 以上更改样式较多可用className来更改
+        test.onclick=function(){
+            // test.className='change';
+            // 会覆盖原来的类,若不覆盖用多类名
+            test.className='margin change';
+        }
+    </script>
+</body>
+</html>

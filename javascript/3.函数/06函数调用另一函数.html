@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 函数是可以相互调用的
+        function fn1(){
+            console.log(11);
+            // fn2()
+        }
+        fn2()
+
+        function fn2(){
+            console.log(22)
+            fn1()
+        }
+
+        // 函数调用顺序
+        function fn111(){
+            console.log(111);
+            fn222();
+            console.log('yes');
+        }
+
+        function fn222(){
+            console.log(222);
+            console.log('no');
+        }
+
+        fn111()
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .tb-promo {
+            position: relative;
+            width: 520px;
+            height: 280px;
+            background-color: pink;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .tb-promo img {
+            width: 520px;
+            height: 280px;
+        }
+        .prev ,
+        .next {
+            display: none;
+            position: absolute;
+            /* 绝对定位垂直居中算法:适用绝对定位和固定位 */
+            top: 50%;
+            margin-top: -15px;
+            width: 20px;
+            height: 30px;
+            /* rgba() 函数使用红(R)、绿(G)、蓝(B)、透明度(A)
+                        的叠加来生成各式各样的颜色 */
+            background-color:rgba(0, 0, 0, .3);
+            /* 内容部分 居中*/
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            /* 下划线 文本-装饰 */
+            text-decoration: none;
+            /* 最上层 */
+            z-index: 2;
+        }
+        .prev{
+            left: 0;
+            /* 制作圆角 radius半径*/
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        .next{
+            right: 0;
+            /* 制作圆角 radius半径*/
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        .promo-nav {
+            position: absolute;
+            bottom: 15px;
+            left:50%;
+            margin-left: -35px;
+            width: 70px;
+            height: 13px;
+            background-color:rgba(255,255,255,.3);
+            /* 制作圆角 */
+            border-radius: 7px;
+        }
+        .promo-nav li {
+            /* 浮动后小点变为一横排 */
+            float: left;
+            /* 上下左右外边距都设为3,让他们离开一点距离 */
+            margin: 3px;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            /* 变为圆形 */
+            border-radius: 50%;
+        }
+        /* 注意权重 否则是上面的白色*/
+        .promo-nav .selected {
+            background-color: #ff5000;
+        }
+        ul {
+            /* ul要移动必须有定位才行,li不能动否则其他li没位置, */
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 600%;
+        }
+        ul li {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="tb-promo">
+        <ul>
+            <li><a href="#"><img src="./img/1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./img/2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./img/3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./img/4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./img/5.jpg" alt=""></a></li>
+        </ul>
+        <!-- 左右侧按钮箭头 -->
+        <a href="javaScript:;" class="prev">&lt</a>
+        <a href="javaScript:;" class="next">&gt</a>
+        <!-- 小圆点 -->
+        <ol class="promo-nav">
+            <!-- 浮动后小点变为一横排  -->
+            <!-- 利用js动态生成小圆圈 -->
+        </ol>
+    </div>
+    <!-- 这个animate.js必须写到index.js的前面,因为index.js依赖它 -->
+    <script src="./js/animate.js"></script>
+   <!-- 引入js文件 -->
+    <script src="./js/index.js">
+    
+        // 功能需求:
+        // 1.鼠标经过轮播图,左右按钮显示,离开隐藏
+        // 2.点击左侧按钮一次,图片往左播放一张,以此类推,右侧同理
+        //3,图片播放时下面小圆圈一起变化
+        //4.点击小圆圈,可以播放对应图片
+        //5,鼠标不经过轮播图,轮播图也会自动播放.
+        //6.鼠标经过.轮播图自动播放停止
+
+        //因为js较多,我们单独新建js文件夹,再新建js文件,引入页面中
+        //此时需要添加load事件.
+        
+    </script>
+</body>
+</html>

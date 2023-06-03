@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="begin">开启定时器</button>
+    <button class="stop">停止定时器</button>
+    <script>
+        //原理:给定时器一个标识timer,开启时将定时事件赋于它,结束时使它的值为null(空)
+        //1.获取元素
+        var begin=document.querySelector('.begin');
+        var stop=document.querySelector('.stop');
+        var timer=null;
+        //2.注册事件 运行程序
+        begin.addEventListener('click',function(){
+            timer=setInterval(function(){  //间隔定时器 setInterval(函数,间隔)
+                console.log('定时器运行');
+            },1000)
+        })
+        stop.addEventListener('click',function(){
+            clearInterval(timer); //取消定时 clearInterval()
+        })
+    </script>
+</body>
+</html>

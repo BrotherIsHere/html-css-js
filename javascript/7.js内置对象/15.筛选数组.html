@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //把数组中大于2000的删除,剩余的放到新数组里
+        var arr=[12,3333,4343,444,6765,1888];
+        var newArr=[];
+        for (i=0;i<arr.length;i++){
+            if (arr[i]<=2000){
+                // newArr[newArr.length]=arr[i];   //原来的写法
+                newArr.push(arr[i]);     //现在的写法
+            }
+        }
+        console.log(newArr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

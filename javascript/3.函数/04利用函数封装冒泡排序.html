@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sort(abc){
+            for (var i=0;i<abc.length-1;i++){
+                for (var n=0;n<abc.length-1-i;n++){
+                    if (abc[n]>abc[n+1]){
+                        var temp=abc[n];
+                        abc[n]=abc[n+1];
+                        abc[n+1]=temp;
+                    }
+                }
+            }
+            return abc;
+        }
+        var newsort=sort([2,4,5, 88,3,33]);
+        console.log(newsort);
+        var new2=sort([2,4,22,77,7,333]);
+        console.log(new2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

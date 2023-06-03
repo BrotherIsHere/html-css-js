@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //数组去0
+        var a1=[2,0,6,1,77,0,52,0,25,7];
+        var a2=[];
+        for (var i=0;i<a1.length;i++){
+            if (a1[i] != 0){
+                a2[a2.length]=a1[i]
+            }
+        }
+        console.log(a2);
+         //翻转数组
+        var s1=['red','green','blue','pink','pruple']
+        var s2=[];
+        for (var j=s1.length;j>0;j--){
+            s2[s2.length]=s1[j-1]
+        }
+        console.log(s2);
+    </script>
+</body>
+</html>

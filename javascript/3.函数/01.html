@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function getSum(num1, num2) {
+            var sum = 0
+            for (var i = num1; i <= num2; i++) {
+                sum += i
+            }
+            return sum;
+        }
+        s = getSum(1, 100)
+        console.log(s);
+        //求最大值
+        function getMax(n1, n2) {
+            return n1 > n2 ? n1 : n2;
+        }
+        console.log(getMax(433, 88));
+
+        //求数组的最大数值
+        var ar = [5, 2, 99, 101, 767, 77, 333, 5, 3.3]
+        function arrMax(arr) {
+            var max = arr[0]
+            for (var i = 1; i <= arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i]
+                }
+            }
+            return max
+        }
+        var re = arrMax(ar)
+        console.log(re)
+
+        //任意两个数的加减乘除
+        function getResult(nu1, nu2) {
+            return [nu1 + nu2, nu1 - nu2, nu1 * nu2, nu1 / nu2]
+        }
+        var b1 = getResult(3, 5)
+        console.log(b1);
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

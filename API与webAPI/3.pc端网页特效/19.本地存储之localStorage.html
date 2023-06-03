@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 生命周期永久有效,除非手动删除,关闭页面也会存在
+     可以多窗口共享-->
+     <input type="text">
+     <button class="set">存储数据</button>
+     <button class="get">获取数据</button>
+     <button class="remove">删除数据</button>
+     <button class="del">清空所有数据</button>
+     <script>
+         localStorage.setItem('start','开始练习')
+
+        var ipt=document.querySelector('input');
+        var set=document.querySelector('.set');
+        set.addEventListener('click',function(){
+            //当我们点击了之后,就可以反表单里面的值存储起来
+            var val=ipt.value;
+            localStorage.setItem('uname',val);
+            localStorage.setItem('PWD',val);
+
+        })
+        var get=document.querySelector('.get');
+        get.addEventListener('click',function(){
+            //获取存储的值
+            a=localStorage.getItem('uname');
+            console.log(a);
+        })
+        var remove=document.querySelector('.remove');
+        remove.addEventListener('click',function(){
+            //移除存储内容
+            localStorage.removeItem('uname');
+        })
+        var del=document.querySelector('.del');
+        del.addEventListener('click',function(){
+            //清空
+            localStorage.clear();
+        })
+
+     </script>
+</body>
+</html>

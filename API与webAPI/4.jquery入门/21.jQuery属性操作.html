@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <a href="http://www.itcast.cn" title="都挺好">都挺好</a>
+    <input type="checkbox" name="" checked>
+    <!-- 添加自定义属性 -->
+    <div index="2" data-index="8">我是div</div>
+    <span>123</span>
+
+    <script>
+        //1获取元素固有属性prop('属性名')
+        //修改元素固有属性prop('属性名','属性值')
+        $(function(){
+            l=$('a').prop('href');
+            console.log(l);
+            $('a').prop('title','还可以');
+            //复选框改变时查看属性
+            $('input').change(function(){
+                console.log($(this).prop('checked'));
+            })
+        })
+        //2设置和获取自定义属性attr()
+         $('div').attr('index',4);
+         $('a').attr('title','Sandy');  //元素仍然显示原值,但获取新值
+        console.log($('div').attr('index'));
+        console.log($('a').attr('title'));
+        console.log($('div').attr('data-index'));
+        //3数据缓存data(),数据存放在元素的内存中,元素中看不到
+        $('span').data('name','andy');
+        //但能获取到
+        console.log($('span').data('name'));
+        //H5中可以获取data数据中的data-*****
+        console.log($('div').data('index'));
+
+
+
+
+    </script>
+</body>
+</html>

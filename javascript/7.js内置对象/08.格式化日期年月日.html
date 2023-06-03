@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //格式化日期 年月日
+        var date=new Date();  //创建一个日期对象
+        console.log(date);
+        console.log(date.getFullYear());
+        console.log(date.getMonth()+1);  //返回的月份少一个月,0-11月,0是1月份;所以加1
+        console.log(date.getDate());  //一个月中的哪一天
+        console.log(date.getDay());  //星期二
+        //我们写一个 2019年5月1日 星期三 的格式
+        var year=date.getFullYear();
+        var month=date.getMonth()+1;
+        var dates=date.getDate();
+        var arr=['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+        var day=date.getDay();
+        console.log('今天是'+year+'年'+month+'月'+dates+'日 '+arr[day]);
+        console.log(year+'-'+month+'-'+dates+' '+arr[day]);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

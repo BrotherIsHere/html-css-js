@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 100之间的平均数
+        sum=0
+        for (var num=1; num<=100;num++){
+            sum+=num;
+        }
+        console.log(sum/100);
+        // 奇数和偶数和
+        var jiShu=0
+        var ouShu=0
+        for (nu1=1;nu1<=100;nu1++){
+            if (nu1%2==1){
+                jiShu+=nu1
+            } else {
+                ouShu+=nu1
+            }
+        }
+        console.log('奇数和是'+jiShu);
+        console.log('偶数和是'+ouShu);
+        // 100以内能被子整除的数字和
+        var sum3=0
+        for (nu3=1;nu3<=100;nu3++){
+            sum3+= nu3%3==0 ? nu3:0
+        }
+        console.log('和是'+sum3);
+    </script>
+</body>
+</html>

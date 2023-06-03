@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //专家写的程序
+        var str='abcoefoghoohijkol';  //查找o的位置和出现的次数
+        var index=str.indexOf('o');
+        var num=0
+        // var arr=[]; //也可用数组存储位置
+        while (index!=-1){
+            console.log(index);  //输出
+            // arr.push(index);
+            num+=1;
+            index=str.indexOf('o',index+1);  //从找到o的下一位置再查找
+
+        }
+        console.log('o出现的次数为:'+num);
+        // console.log(arr);
+
+
+        //查找数组元素出现的位置和总人数
+        var a1=[1,'a',2,'b',3,'a','a','b'];
+        var nu=0;
+        ind=a1.indexOf('a');
+        while (ind!=-1){
+            console.log(ind);
+            nu+=1;
+            ind=a1.indexOf('a',ind+1);
+        }
+        console.log('出现的次数为:'+nu);
+
+
+        
+        //自己写的程序,有点复杂
+        // var str='abcoefoghoohijkol';  //查找o的位置和出现的次数
+        // var n=0;  //计次数
+        // var m=0;  //查找的位置
+        // var arr=[]
+        // for (var i=0;i<str.length;i++){
+        //     var w=str.indexOf('o',[m]);            
+        //     if (w!=-1){
+        //         arr.push(w);
+        //         n+=1;
+        //         m=w+1;
+        //     } else {
+        //         break;
+        //     }
+        // }
+        // console.log(arr);
+        // console.log(n);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

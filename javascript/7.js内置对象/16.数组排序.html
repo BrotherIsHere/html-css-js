@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1.反转数组
+        var arr=[1,2,3,4,5];
+        arr.reverse();
+        console.log(arr);
+        //2.数组排序(冒泡排序)????
+        var arr1=[22,3,45,115,43,6,'b','app','a'];   //字符参与排序
+        arr1.sort();
+        console.log(arr1);    //结果为  115, 22, 3, 43, 45, 6 ???  先看第一位,再看第二位
+        //3. 应该数组排序(冒泡排序)
+        var arr2=[33,54,23,7,9,'b','app',44,'a','bc',333];  //字符不参与排序
+        arr2.sort(function(a,b){    //固定格式
+            // return a-b     //升序排列
+            return b-a;       //降序排列
+        })
+        console.log(arr2);
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

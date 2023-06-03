@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 五行五列
+        var sum = ''
+        for (var i = 1; i <= 5; i++) {
+            
+            for (var num = 1; num <= 5; num++) {
+                sum += '☆'
+            }
+
+            sum+="\n"
+        }
+        console.log(sum);
+        // 倒三角形
+        var num = 10
+        //循环10次(1-10)
+        for (var a = 1; a <= 10; a++) {
+            var xs = ''
+            //第n次循环,循环次数为(n~10)
+            for (var f =a; f <= num; f++) {
+                xs += '☆'
+            }
+            console.log(xs);
+            // num--
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

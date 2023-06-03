@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* left不变化移动所以必须加定位 */
+            position: absolute;
+            top: 100px;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        span {
+            position: absolute;
+            top: 200px;
+            left: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    
+     <div>
+     </div>
+     <span>qqqq</span>
+     <button>点击qqqq才走</button>
+     <script>
+        //简单函数封装需要两个 obj目标对象 target目标位置
+        // function animate(obj,target){
+        //     var timer=setInterval(function() {
+        //         if (obj.offsetLeft>=target){
+        //             // 停止定时器
+        //             clearInterval(timer);
+        //         }
+        //         obj.style.left=obj.offsetLeft+5+'px'; //获取盒子当前的位置+5
+        //     }, 50);
+        // }
+
+
+        var div=document.querySelector('div');
+        var span=document.querySelector('span');
+        animate(div,400);
+        
+        //出现问题,每个定时器中的var timer都会在内存中开辟空间
+        //timer定时器名称相同
+        //利用给对象添加属性的方式给不同元素指定不同的定时器
+        function animate(obj,target){
+            //问题:点击qqqq越多,开启的定时器越多,移动的越快
+            //解决方法:先清除以前的定时器,只保留当前的定时器
+            clearInterval(obj.timer)
+            //将var timer变为obj.timer
+            obj.timer=setInterval(function() {
+                if (obj.offsetLeft>=target){
+                    // 停止定时器
+                    clearInterval(obj.timer);
+                }
+                obj.style.left=obj.offsetLeft+5+'px'; //获取盒子当前的位置+5
+            }, 50);
+        }
+       
+        var btn=document.querySelector('button');
+        btn.addEventListener('click',function(){
+            animate(span,300)
+        })
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //构造函数相当于类(class)或图纸,创建对象的过程也称为实例化,对象是实例
+
+        // 多个对象的属性和方法大量相同,可用构造函数来创建
+        // 构造函数 就是把对象里面一些相同的属性和方法抽象出来封装到函数里面,来创建多个不同的对象
+        // 构造函数中封装的不是普通代码,而是对象
+
+        //格式:
+        // function 构造函数(){
+        //     this.属性=值;
+        //     this.方法=function(){
+
+        //     }
+        // }
+        // new 构造函数();  //调用时用new
+
+        //利用构造函数创建四大天王的对象
+        function Star(uname,sex,age){   //函数名大写
+            this.name=uname;    //属性和方法前必须添加this
+            this.sex=sex;
+            this.age=age;   
+            this.sing=function(sang){
+                console.log(sang+sang);
+            } //不需要return
+        }
+        var ldh=new Star('刘德华','男',18)  //必须用new
+        console.log(typeof ldh);
+        console.log(ldh.name);
+        console.log(ldh['sex']);
+        ldh.sing('冰 雨')
+        var zxy=new Star('张学友','男',33)  //必须用new
+        console.log(zxy.name);
+        console.log(zxy['age']);
+        zxy.sing('李得到 ')
+
+        //创建两个英雄
+        function Hero(nm,typ,blood){
+            this.name=nm;
+            this.type=typ;
+            this.blood=blood;
+            this.attck=function(zs){
+                console.log('攻击 : '+zs);
+            }
+        }
+        var lb=new Hero('廉颇','力量型','500血量')
+        lb.attck('近战')
+        console.log(lb.name);
+        console.log(lb.type);
+        console.log(lb.blood);
+        var hy=new Hero('后羿','射手型','100血量')
+        console.log(hy.name);
+        console.log(hy.type);
+        console.log(hy.blood);
+        hy.attck('远程')
+        console.log(hy);
+
+        //new 关键字执行过程
+        // 1.new遇到构造函数(Hero为例)就会在内存中创建一个新的空的对象
+        // 2.this就指向这个新对象
+        // 3.执行构造函数里的代码,把属性和方法添加进这个空对象,形成实例
+        // 4.返回这个新对象(所以不需要return)
+
+        
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

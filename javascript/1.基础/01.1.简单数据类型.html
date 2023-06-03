@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //JS把数据分为两类
+        //简单数据类型:Number,String,Boolean,Undefined,Null
+        //复杂数据类型:object
+
+        //一,Number类型
+        var num=10; //数字型
+        //八进制前面加0
+        var num1=010;
+        console.log(num1); //8
+        //十六进制前面加0x
+        var num2=0xe; 
+        console.log(num2);// 14
+        //二进制前面加0b
+        var num3=0b110;
+        console.log(num3);
+        //数字的最大值
+        console.log(Number.MAX_VALUE);
+        //数字的最小值
+        console.log(Number.MIN_VALUE);
+        //无穷大 Infinity
+        console.log(Number.MAX_VALUE*8); //Infinity
+        //无穷小  -Infinity
+        console.log(-Number.MAX_VALUE*8); //-Infinity
+        //NaN, Not a number,代表一个非数字
+        console.log('大'-100);  //NaN
+        //isNaN()方法,不是数字返回false,是数字返回true
+        console.log(isNaN(33)); //false
+
+        //二.String字符串型
+        //字符串转义符 用\开头,写入引号里面(字符串里)
+        // \n 换行符  \\ 单斜杠\  \' 单引号' \"双引号
+        // \t tab缩进   \b 空格
+        console.log('我是一个\n程序员');
+
+
+        //字符串长度 length
+
+        //字符串拼接用 + 
+        //   var age=prompt("请输入年龄")
+        //   var str="您今年"+age+"岁啦"
+        //   alert(str)
+        
+        //三,Boolean 布尔型
+       var st1=true
+       var st2=false
+       // var st1=true,st2=false
+        console.log(st1+1);  //2 true当做1
+        console.log(st2+1);  //1 FALSE当做0
+
+        //四.undefined 未定义数据类型
+        var st3;
+        console.log(st3);   //undefined
+        var st4=undefined;
+        console.log(st4+'dd');  //字符串undefineddd
+        console.log(st3+'ee');  //字符串undefinedee
+        console.log(st3+1);     //NaN 非数字型
+
+        //五.null 空值
+        var st5=null;
+        console.log(st5+'pink'); //nullpink 字符串
+        console.log(st5+1);  //1 数字型
+
+        //六获取数据类型 typeof
+        console.log(typeof st2);  //boolean
+        console.log(typeof st5);  //object
+        
+        //七 通过终端颜色看数据类型 
+        console.log(18);           //蓝色
+        console.log('18');         //黑色
+        console.log(true);          //深蓝色
+        console.log(undefined);     //浅灰色
+        console.log(null);          //浅灰色
+        
+        //八 通过字面量看数据类型(略)
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

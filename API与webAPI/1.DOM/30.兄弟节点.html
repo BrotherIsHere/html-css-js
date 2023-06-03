@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <script>
+     
+        var div=document.querySelector('div');
+        // nextSibling 下一个兄弟节点,previousSibling 兄节点,包含元素节点或文本节点等等
+        console.log(div.nextSibling);  // #text 弟节点
+        console.log(div.previousSibling); //#text 兄节点
+        // 下一个弟兄元素节点,nextElementSibling和 previousElementSibling
+        // 这俩个ie9以上兼容
+        console.log(div.nextElementSibling);  //<span>我是span</span>
+        console.log(div.previousElementSibling);  //null
+    </script>
+</body>
+</html>

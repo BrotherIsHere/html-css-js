@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 100px auto;
+            width: 500px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td,
+        th {
+            border: 1px solid #333;
+        }
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+        table tbody a {
+            text-decoration: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- cell spacing 单元格 间隔-->
+    <table  cellspacing="0" >
+        <thead >
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        //1,先去准备好学生的数据(实际开发中数据是存在数据库中的,这是模拟数据库)
+        var datas = [{
+            name:'魏璎珞',
+            subject:'Javascript',
+            score:100,
+        },{
+            name:'弘历',
+            subject:'Javascript',
+            score:98,
+        },{
+            name:'明玉',
+            subject:'Javascript',
+            score:88,
+        },{
+            name:'傅林',
+            subject:'Javascript',
+            score:90,
+        }];
+        //2,往tbody里面创建行,有几个人(datas.length)创建几行
+        var tbody=document.querySelector('tbody');
+        for (var i=0;i<datas.length;i++){
+            var tr=document.createElement('tr');
+            //3.往行里面添加td先添加前面的td
+            // for (var j=0;j<Object.keys(datas[i]).length;j++){
+            //或者用fo k in ibj 可遍历对象
+            //k得到的是属性名
+            //obj[k] 得到是属性值
+            for (var j in datas[i] ){
+                var td=document.createElement('td');
+                // td.innerHTML=datas[i][Object.keys(datas[i])[j]];
+                td.innerHTML=datas[i][j];
+                tr.appendChild(td)
+            }
+            //4.再添加最后一个'删除'td
+            var del=document.createElement('td');
+            del.innerHTML="<a href='javascript:;'>删除</a>"
+            tr.appendChild(del);
+            //5.同时添加删除行操作
+            // del.onclick=function(){
+            //     tbody.removeChild(this.parentNode);
+            // }
+            tbody.appendChild(tr);
+        }
+        //5.或者最后添加删除操作
+        var as=document.querySelectorAll('a');
+        for (var k=0;k<as.length;k++){
+            as[k].onclick=function(){
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+
+    </script>
+</body>
+</html>

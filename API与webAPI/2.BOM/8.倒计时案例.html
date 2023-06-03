@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            margin: 100px auto;
+
+        }
+        span {
+            float: left;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            color: rgb(245, 245, 33);
+            border: 2px solid rgb(5, 208, 49);
+            font-size: 30px;
+            text-align: center; /*水平居中*/
+            line-height: 50px ; /*行高等于高度文字会垂直居中*/
+        }
+    </style>
+</head>
+<body>
+    <!-- 先建一个大盒子和三个小盒子放时间 -->
+    <div>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+        //倒计时案例 自己写的:
+        // function countDown(time){
+        //     var now=+new Date();
+        //     var indate=+new Date(time);
+        //     var xdate=(indate-now)/1000;
+        //     h=parseInt(xdate/60/60%24);
+        //     h=h<10 ? '0'+h :h;
+        //     m=parseInt(xdate/60%60);
+        //     m=m<10 ? '0'+m : m;
+        //     s=parseInt(xdate%60);
+        //     s=s<10 ? '0'+s : s;
+        //     var arr=[h,m,s];
+        //     return arr;
+        // }
+        // inpt='2023-3-26 0:0:0'
+        // fn () //防止首次出现空白(123)
+        // // 1秒后间隔1秒调用
+        // function fn(){   
+        //     var div=document.querySelector('div');
+        //     div.children[0].innerHTML=countDown(inpt)[0]
+        //     div.children[1].innerHTML=countDown(inpt)[1]
+        //     div.children[2].innerHTML=countDown(inpt)[2]
+        // }
+        // setInterval(fn,1000)
+
+        // 老师教的内容:
+        // 1.获取元素
+        var hour=document.querySelector('.hour');
+        var minute=document.querySelector('.minute');
+        var second=document.querySelector('.second');
+        var inTime=+new Date('2023-3-26 0:0:0');  //用户输入的时间戳
+        //2.开启定时器
+        countDown()  //先调用一次,防止第一次刷新出现空白(123)
+        setInterval(countDown,1000);//1秒后开始调用,且间隔一秒调用一次
+
+        function countDown(){
+            var nowTime=+new Date(); //获取现在时间戳
+            var times=(inTime-nowTime)/1000; //剩余时间秒
+            var h=parseInt(times/60/60%24); //取整 小时
+            h=h<10 ? '0'+h : h;         //小于10前面加个0
+            hour.innerHTML=h;           //向盒子里添加小时数
+            var m=parseInt(times/60%60);
+            m=m<10 ? '0'+m :m;
+            minute.innerHTML=m;
+            var s=parseInt(times%60);
+            s=s<10? '0'+s :s;
+            second.innerHTML=s;
+        }
+    </script>
+</body>
+</html>

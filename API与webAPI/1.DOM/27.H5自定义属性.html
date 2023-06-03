@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 自定义属性目的:是为了保存和使用数据,将数据保存到页面中使用而不是数据库中
+    H5规定:自定义属性以data-开头作为属性名并且赋值例如 data-index='5' 
+    必须用getAttribute('属性名')来获取
+    <div data-index='1'></div>
+    设置使用 element.setAttribute('data-index',2)
+-->
+<!-- 
+    获取H5自定义属性
+    1.兼容性好 element.getAttributi('data-index')
+    2.H5新增element.dataset  data-集合 只能获取data开头的
+        element.dataset.index方式或者element.dataset['index']来获取自定义属性index ie11支持
+        有多个-的链接.采用驼峰命名法
+        element.getAttribute('data-list-name')可写成dataset.listName 或dataset['listName']
+ -->
+</body>
+</html>

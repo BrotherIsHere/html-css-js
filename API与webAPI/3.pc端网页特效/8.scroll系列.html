@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* scroll系列属性
+        window.pageYOffset 返回页面被卷去的上侧距离,不带单位 Offset大写字母
+        window.pageXOffset 返回页面被卷去的左侧距离,不带单位
+        element.scrollTop 返回元素被卷去的上侧距离,不带单位
+        element.scrollLeft 返回元素被卷去的左侧距离,不带单位
+        element.scrollWidth 返回元素自身实际的宽度,不带单位
+        element.scrollHeight 返回元素自身实际的高度,不带单位
+         */
+        body {
+            height: 4000px;
+        }
+        div {
+            margin: 100px;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 5px solid red;
+            /* 溢出自动:滚动条 */
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="two">我是内容我是内容我是内
+        容我是内容我是内容我是内
+        容我是内容我是内容我是内容我是内容
+        我是内容我是内容我是内容
+        我是内容我是内容我是内容我是内容我是内容
+    </div>
+    <script>
+        window.addEventListener('scroll',function(){
+            console.log(window.pageYOffset);  //被卷去的头部高度
+        })
+
+        var div=document.querySelector('.two');
+        console.log(div.scrollHeight);  //元素(内容)实际高度 336
+        console.log(div.clientHeight);  //元素高度width+padding  120
+        console.log(div.offsetHeight);  //元素高度width+padding+border 130
+        div.addEventListener('scroll',function(){
+            console.log(this.scrollTop);  //被卷去的头部高度
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: relative;
+            /* 相对定位 为img绝对定位设立标准 */
+            width: 400px ;
+            /* 宽度400px */
+            border-bottom: 1px solid #ccc;
+            /* 底边框 */
+            margin: 100px auto;
+            /* 外边框 上100 左右居中 */
+        }
+        .box input{
+            width: 370px;
+            height: 30px;
+            border: 0px;
+            /* 无边框 */
+            outline: none;
+            /* 动态轮廓线 */
+        }
+        .box img{
+            /* 相对于最近的relative定位top right */
+            position: absolute;
+            top: 10px;
+            right: 0px;
+            /* 绝对定位,相对于最近的relative定位top right */
+            width: 24px;
+            /* 图片大小为24px; */
+        }
+        /* 眼睛图片设为24px */
+    </style>
+</head>
+<body>
+    <!-- 大盒子 -->
+    <div class="box">
+        <!-- label与密码框绑定 用 for和id 点击label相当于点击input 常成对配合使用 -->
+        <label for="">
+            <img src="img/c.png" alt="">
+        </label>
+        <!-- 盒子内放密码框 -->
+        <input type="password" name="" id="">
+    </div>
+    <script>
+        // 1.获取元素
+        var img=document.querySelector('img');
+        var input=document.querySelector('input');
+        // 2.绑定事件 处理程序
+        var flag=0;
+        img.onclick=function(){
+            if (flag==0){
+                input.type='text';
+                img.src='img/o.png';
+                flag=1;
+            } else {
+                input.type='password';
+                img.src='img/c.png';
+                flag=0;
+            }
+        }
+    </script>
+    <span ></span>
+</body>
+</html>

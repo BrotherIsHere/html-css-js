@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search {
+            /* 相对定位,为内部的盒子绝对定位而定位 */
+            position: relative;
+            /* 设置宽度,高度靠内部盒子撑开 */
+            width: 178px;
+            margin: 100px;
+            /* 外边距 100px */
+            /* background-color: aliceblue; */
+        }
+
+        .con {
+            display: none;
+            /* 绝对定位,相对于前一个position(如果有)的位置 */
+            position: absolute;
+            top: -40px;
+            /* 距顶位置距离  */
+            /* 宽度,不设高度靠内部数据撑开 */
+            width: 171px;
+            border: 1px solid rgba(0, 0, 0, 2);
+            /*边框*/
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 2);
+            /* 阴影:x值 y值 模糊程度 颜色 */
+            /* 盒子内部值,决定盒子的大小 padding内边距 */
+            padding: 5px 0;
+            font-size: 18px;
+            line-height: 20px;
+            /*行高*/
+            color: #333;
+            /* background-color: antiquewhite; */
+        }
+
+        /* ::before和::after可以添加到选择器以创建伪元素的关键字。
+        伪元素被插入到与选择器匹配的元素内容之前或之后。
+        1）::before和::after下特有的content，
+        用于在css渲染中向元素逻辑上的头部或尾部添加内容。
+        2）::before和::after必须配合content属性来使用，
+        content用来定义插入的内容，content必须有值，至少是空
+        3）这些添加不会出现在DOM中，不会改变文档内容，不可复制,
+        仅仅是在css渲染层加入。所以不要用:before或:after展示
+        有实际意义的内容，尽量使用它们显示修饰性内容 */
+        .con::before {
+            /*画下边框提示小三角*/
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 28px;
+            left: 18px;
+            /* border 1个值:四个边框,2个值:上下,左右,3个:上,左右,下.4个,上,右,下,左 */
+            border: 8px solid #000;
+            /*边框宽*/
+            border-style: solid dashed dashed;
+            /*上实线,左右虚线,下虚线 */
+            border-color: rgb(247, 244, 244) transparent transparent;
+            /*上白,左右透明,下透明 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <div class="con">123</div>
+        <!-- placeholder可以用来描述输入字段预期值的简短
+        的提示信息。提示信息会在用户输入值之前显示，
+        一旦用户输入信息该提示就会自动消失。 -->
+        <input type="text" placeholder="请输入您的快递单号" class="jd">
+    </div>
+    <script>
+        // 获取元素
+        var input = document.querySelector('input');
+        var con = document.querySelector('.con');
+        //监听事件
+        input.addEventListener('keyup', function (e) {
+            //如果为空则不显示大框
+            if (this.value == '') {
+                con.style.display = 'none';
+            } else {
+                //将input内容值复制到大框内
+                con.innerHTML = this.value;
+                con.style.display = 'block'; //显示大框
+            }
+        })
+        //失去焦点就隐藏大盒子
+        input.addEventListener('blur',function(){
+            con.style.display='none';
+        })
+        //获得焦点且不为空就显示大盒子
+        input.addEventListener('focus',function(){
+            if (this.value!=''){
+                con.style.display='block';
+            }
+        })
+    </script>
+</body>
+
+</html>

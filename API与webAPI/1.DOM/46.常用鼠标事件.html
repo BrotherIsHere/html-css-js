@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- //常用鼠标事件
+    //onclick 鼠标点击左键触发
+    //onnouseover 经过
+    //onmouseout 离开
+    //onfocus 获得鼠标焦点触发
+    //onblur 失去鼠标焦点触发
+    //onmousemove 鼠标移动
+    //onmouseup 鼠标弹起触发
+    //onmousedown 鼠标按下触发
+    
+    禁止鼠标右键菜单
+    禁止鼠标选中 -->
+    我是一段不愿分享的文字,禁用左键菜单和选中分享
+    <script>
+        //1.禁止鼠标右键
+        //contextmenu主要控制应该何时显示上下文菜单,主要用于程序员取消默认的下下文菜单
+        document.addEventListener('contextmenu',function(e){
+            e.preventDefault();  //取消默认(不显示菜单)
+        })
+        //2.禁止鼠标选中(selectstart 开始选中)
+        document.addEventListener('selectstart',function(e){
+            e.preventDefault();  //取消默认(不选中)
+        })
+
+    </script>
+</body>
+</html>

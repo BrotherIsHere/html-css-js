@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!-- window.onresize -->
+    <script>
+        // window.onresize=function(){
+        //     console.log('窗口变了');
+        // }
+        //或者全部加载完毕后执行,窗口小于800隐藏,大于则显示
+        window.addEventListener('load',function(){
+            var div=document.querySelector('div');
+            window.addEventListener('resize',function(){
+                // console.log('窗口变了');
+                // console.log(window.innerWidth); //窗口宽度
+                //如果窗口宽度小于800px,盒子隐藏
+                if (window.innerWidth<800){
+                    div.style.display='none';
+                } else {
+                    div.style.display='block';
+                }
+            })
+        })
+    </script>
+    <div></div>
+</body>
+</html>

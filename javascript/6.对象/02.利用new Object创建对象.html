@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var obj=new Object(); //创建了一个空的对象
+        //利用=添加属性和方法,用;结束
+        obj.name='张三疯';
+        obj.age=18;
+        obj.sex='男';
+        obj.sayHi=function(){
+            console.log('hi~');
+        }
+
+        console.log(obj.name);
+        console.log(obj['sex']);
+        obj.sayHi()
+
+        //创建鸣人对象
+        var mr=new Object();
+        mr.name='mingren';
+        mr.sex='男';
+        mr.age=19;
+        mr.skill=function(){
+            console.log('影分身术');
+        }
+
+        console.log(mr.name);
+        console.log(mr.age);
+        mr.skill();
+        console.log(mr['sex']);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

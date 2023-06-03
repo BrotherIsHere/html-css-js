@@ -1,0 +1,3 @@
+用百度搜 www.baidu.com
+用W3C   http://www.w3school.com.cn
+用MDN   http://developer.mozilla.org/zh-CN

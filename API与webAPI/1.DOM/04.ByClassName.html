@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">aa</div>
+    <p>bb</p>
+    <span>ss</span>
+    <div class="box">qq
+        <ul class="pig">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <script>
+        var tags=document.getElementsByClassName('box');
+        console.log(tags);
+        var tag2=document.querySelector('.pig'); //id用#，类class用
+        console.log(tag2);
+        var li2=document.querySelector('li');
+        console.log(li2);
+        var tag3=document.querySelectorAll('.box');
+        console.log(tag3);
+        var li3=document.querySelectorAll('li');
+        console.log(li3);
+    </script>
+</body>
+</html>

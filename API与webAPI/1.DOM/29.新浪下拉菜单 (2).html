@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 清除内外边距 */
+        * {
+            margin:0;
+            padding: 0;
+        }
+        /* 清除li前面的小点 */
+        li {
+            list-style: none;
+        }
+        /* 连接样式 */
+        a {
+            /* 去掉链接里面的下划线,字体为黑色 */
+            text-decoration: none;
+            color: black;
+        }
+        /* 用定位的方法将每个小li里面的ul定位到该小li的下面 */
+        /* 给第一个UL设置样式 */
+        .nav {
+            /* 相对定位 */
+            position: relative;
+            width: 600px;
+            height: 35px;
+            /* 上边距 */
+            top: 100px;
+            /* 左边距 */
+            left: 100px;
+            background-color: aqua;
+        }
+        /* >子选择器,大ul里面的三个li的样式 */
+        .nav>li {
+            /* 左浮动 */
+            float: left;
+            /* 行高 */
+            line-height: 35px;
+            width: 200px;
+            height: 35px;
+            /* 文字居中对齐 */
+            text-align: center;
+        }
+        .nav ul {
+            /* 隐藏ul块 */
+            display: none;
+            width: 200px;
+            /* 绝对定位 */
+            position: absolute;
+            /* 顶部距离相对定位大ul 35px,使得其位置在a的下方35px,看起来象是在同一个表格内的效果 */
+            top: 35px;
+            /* border-box限定了盒子模型的总面积 不会受边框粗细影响盒子的大小*/
+            box-sizing: border-box;
+            /* 小ul左右边框粗细样式颜色 */
+            border-left: 1px solid #fecc5b;
+            border-right: 1px solid#fecc5b;
+        }
+        /* .nav li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            line-height: 41px;
+            color: #333;
+        } */
+        /* a链接鼠标经过变颜色 */
+        .nav>li>a:hover {
+            background-color: #eee;
+        }
+        
+        .nav ul li {
+            /* 下边框 */
+            border-bottom: 1px solid #fecc5b;
+        }
+        /* 鼠标经过变颜色 */
+        .nav ul li:hover {
+            background-color: #fff5da;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <!-- 鼠标在微博上时菜单打开,私信评论@我区域内时,相当于鼠标在微博上经过
+            所以它们应该放在同一个li里 -->
+            <a href="#">微博</a>
+            <ul>
+                <li>1无链接
+                    <a href="#">有链接私信</a>
+                </li>
+                <li>2
+                    <a href="#">评论</a>
+                </li>
+                <li>3
+                    <!-- <a href="#">@我</a> -->
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>
+                    <a href="#">私信</a>
+                </li>
+                <li>
+                    <a href="#">评论</a>
+                </li>
+                <li>
+                    <a href="#">@我</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>
+                    <a href="#">私信</a>
+                </li>
+                <li>
+                    <a href="#">评论</a>
+                </li>
+                <li>
+                    <a href="#">@我</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        // 获取元素
+        var nav = document.querySelector('.nav');
+        var lis=nav.children;  //得到3个小li
+        // 循环注册事件
+        for (var i=0;i<lis.length;i++){
+            lis[i].onmouseover=function(){
+                this.children[1].style.display='block';
+            }
+            lis[i].onmouseout=function(){
+                this.children[1].style.display='none';
+            }
+        }
+
+    </script>
+</body>
+</html>

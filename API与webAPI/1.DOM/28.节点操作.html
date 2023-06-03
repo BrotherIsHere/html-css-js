@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1.利用DOM提供的方法获取元素
+        document.getElementById()
+        document.getElementByTagName()
+        document.querySelector等
+        逻辑性不强,繁琐
+    2.利用节node点层级关系获取元素
+        利用父子兄节点关系获取元素
+        逻辑性强,但是兼容性稍差
+    3.网页中的所有内容都是节点(标签,属性,文本,注释等)
+        所有节点均可通过javascript进行访问.修改,创建,删除
+        节点至少拥有nodeType(节点类型),nodeName(节点名称)和nodeValue(节点值)基本属性 
+        元素节点 nodeType 为1
+        属性节点 nodeType 为2
+        文本节点(包含文字,空格,换行等) nodeType 为3
+    4.实际开发中,节点操作主要操作的是元素节点  -->
+
+    <ul>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+    </ul>
+    <ol>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ol>
+    <div class="demo">
+        <div class="box">
+            <span class="erweima"></span>
+        </div>
+    </div>
+    <script>
+        //1.父节点 parentNode
+        var erweima=document.querySelector('.erweima');
+        console.log(erweima.parentNode);
+        //2.子节点 childNodes  子元素节点children
+        var ul=document.querySelector('ul');
+        console.log(ul.childNodes);
+        //输出9个,包含文本节点(回车)和元素节点
+        console.log(ul.childNodes[0].nodeType);
+        console.log(ul.children);
+        //第一个子节点 firstChild 第一个子元素节点firstElementChild
+        console.log(ul.firstChild);
+        console.log(ul.firstElementChild);
+        //最后一个子节点 lastChild 最后一个子元素节点lastElementChild
+        console.log(ul.lastChild);
+        console.log(ul.lastElementChild);
+        //实际开发用children
+        console.log(ul.children[0]);
+        console.log(ul.children[3]);
+        console.log(ul.children[ul.children.length-1]);
+            // 最后一个元素
+
+
+
+
+     
+
+    </script>
+</body>
+</html>

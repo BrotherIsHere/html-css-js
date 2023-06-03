@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        //获取鼠标在盒子内的坐标
+        //1.盒子内的坐标=获取鼠标在页面中的坐标减去盒子距页面的距离
+        //2.鼠标在页面中的坐标从鼠标对象e中获取e.pageX e.pageY
+        //3.盒子在页面中的坐标从offsetLeft offsetTop获取
+        var box=document.querySelector('.box');
+        box.addEventListener('mousemove',function(e){    //可更换为click
+            //盒子内的坐标=获取鼠标在页面中的坐标减去盒子距页面的距离
+            var x=e.pageX-this.offsetLeft;
+            // console.log(x);
+            var y=e.pageY-this.offsetTop;
+            box.innerHTML='x的坐标为'+x+'  y的坐标为'+y;
+        })
+
+    </script>
+</body>
+</html>

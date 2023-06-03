@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 400px;
+            margin: 100px auto;
+        }
+        .tab_list{
+            width: 400px;
+            height: 30px;
+            background-color: antiquewhite;
+        }
+        ul li {
+            float: left;
+            height: 25px;
+            margin: 2px 4px;
+            background-color: pink;
+            list-style: none;
+            border: 2px;
+            cursor: pointer
+
+        }
+        .tab_content {
+            width: 400px;
+            height: 400px;
+            background-color: beige;
+        }
+        .current{
+            background-color: red;
+            color: #fff;
+        }
+        .tab_content .item{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="tab_list">
+            <!-- tab栏 -->
+            <ul>
+                <li class="current" data-index="0">11111111</li>
+                <li data-index="1">2222</li>
+                <li data-index="2">333333</li>
+                <li data-index="3">44444</li>
+            </ul>
+        </div>
+        <div class="tab_content">
+            <!-- 内容栏 -->
+            <div class="item" style="display:block ;">
+                内容1111
+            </div>
+            <div class="item">
+                内容22222
+            </div>
+            <div class="item">
+                内容33
+            </div>
+            <div class="item">
+                内容4444444
+            </div>
+        </div>
+    </div>
+    <script>
+        // 定位元素
+        var items=document.querySelectorAll('.item');
+        var lis=document.querySelector('.tab_list').querySelectorAll('li');
+        for (var i=0;i<lis.length;i++){
+            // 点击每一个tab时
+            lis[i].onclick=function(){
+                // 先获取点击的是哪一个(取出定义属性index的序号)
+                var index=this.getAttribute('data-index');
+                for (var i=0;i<lis.length;i++){
+                    // 排他:清除所有tab底色
+                    lis[i].className='';
+                }
+                // 当前按钮底色变为红色
+                this.className='current';
+
+                for (var j=0;j<items.length;j++){
+                    // 排他:所有内容页隐藏
+                    items[j].style.display='none';
+                }
+                // 只显示对应序号的内容页
+                items[index].style.display='block'
+            }
+        }
+    </script>
+
+</body>
+</html>

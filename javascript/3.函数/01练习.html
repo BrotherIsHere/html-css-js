@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //函数 计算器
+        // function getResult(){
+        //     var num1=prompt('请输入第一个数:')
+        //     var sign=prompt('请输入运算符:')
+        //     var num2=prompt('请输入第二个数:')
+        //     if (sign=='+'){
+        //         return parseFloat(num1)+parseFloat(num2)
+        //     }
+        //     if (sign=='-'){
+        //         return parseFloat(num1)-parseFloat(num2)
+        //     }
+        //     if (sign=='*'){
+        //         return parseFloat(num1)*parseFloat(num2)
+        //     }
+        //     if (sign=='/'){
+        //         return parseFloat(num1)/parseFloat(num2)
+        //     }
+        // }
+        // re=getResult()
+        // alert('结果是: '+re)
+
+        //函数 判断素数
+        function getPrime() {
+            var num = prompt('输入一个数来判断是否是素数')
+            if (num == '2') {
+                return num + '是素数'
+            }
+            if (num == '1') {
+                return num + '不是素数'
+            }
+            nu = parseFloat(num)
+            for (var i = 2; i < nu; i++) {
+                if (nu % i == 0) {
+                    return nu + '不是素数'
+                }
+            }
+            return nu + "是素数"
+        }
+        ss = getPrime()
+        alert(ss)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

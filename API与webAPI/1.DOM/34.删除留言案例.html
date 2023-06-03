@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            width: 200px;
+            height: 20px;
+            background-color: aquamarine;
+            margin: 1px;
+        }
+        li a{
+            /* 去掉下划线 */
+            text-decoration: none;
+            color: black;
+            float: right;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10">123</textarea> 
+    <button>发布</button>
+    <ul>
+    </ul>
+    <script>
+        // 1.获取元素
+        var btn=document.querySelector('button');
+        var text=document.querySelector('textarea');
+        var ul=document.querySelector('ul');
+        // 2.注册事件,运行程序
+        btn.onclick=function(){
+            if (text.value==''){
+                alert('内容为空,请输入内容')
+                return false
+            } else {
+                // 创建节点
+                var li=document.createElement('li');
+                // 获取留言板内容
+                var tex1=text.value;
+                // 将留言板内容添加到li节点中
+                // javascript:; 不需要跳转
+                li.innerHTML=tex1+"<a href='javascript:;'>删除</a>";
+                // 将li节点添加到ul中
+                // 后面显用appendChild
+                // ul.appendChild(li);
+                // 前面显示用insertBefore(插入节点,现在的哪个位置前面)
+                ul.insertBefore(li,ul.children[0]);
+
+                //删除留言li
+                var as=document.querySelectorAll('a');
+                for (var i=0;i<as.length;i++){
+                    as[i].onclick=function(){
+                        // 删除语法 node.removeChild(child)
+                        //重点:as[i]是当前,删除的是父节点li,即this.parentNode,所以开头是li的父节点ul.
+                        ul.removeChild(this.parentNode)
+                    }
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>

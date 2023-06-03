@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .tb-promo {
+            position: relative;
+            width: 520px;
+            height: 280px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+        .tb-promo img {
+            width: 520px;
+            height: 280px;
+        }
+        .prev ,
+        .next {
+            position: absolute;
+            /* 绝对定位垂直居中算法:适用绝对定位和固定位 */
+            top: 50%;
+            margin-top: -15px;
+            width: 20px;
+            height: 30px;
+            /* rgba() 函数使用红(R)、绿(G)、蓝(B)、透明度(A)
+                        的叠加来生成各式各样的颜色 */
+            background-color:rgba(0, 0, 0, .3);
+            /* 内容部分 居中*/
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            /* 下划线 文本-装饰 */
+            text-decoration: none;
+        }
+        .prev{
+            left: 0;
+            /* 制作圆角 radius半径*/
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        .next{
+            right: 0;
+            /* 制作圆角 radius半径*/
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        .promo-nav {
+            position: absolute;
+            bottom: 15px;
+            left:50%;
+            margin-left: -35px;
+            width: 70px;
+            height: 13px;
+            background-color:rgba(255,255,255,.3);
+            /* 制作圆角 */
+            border-radius: 7px;
+        }
+        .promo-nav li {
+            float: left;
+            margin: 3px;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+        /* 注意权重 否则是上面的白色*/
+        .promo-nav .selected {
+            background-color: #ff5000;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="tb-promo">
+        <li><img src="./img/1.jpg" alt=""></li>
+        <!-- 左侧按钮箭头 -->
+        <a href="javaScript:;" class="prev">&lt</a>
+        <a href="javaScript:;" class="next">&gt</a>
+        <!-- 小圆点 -->
+        <ul class="promo-nav">
+            <li class="selected"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

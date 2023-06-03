@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 经常使用的动画函数可以单独封装到一个js文件中,使用时引用就行子 -->
+    <style>
+        .sliderbar {
+            /* 固定定位 */
+            position: fixed; 
+            right: 0;  /*距右0*/
+            bottom: 100px;  /*距底100*/
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            /* 内容→为白色箭头 */
+            color:#fff;
+            /*没有底色 */
+            /* background-color: red; */
+            /* z-index设置无用,因为他没有兄弟 */
+        }
+        .con {
+            position: absolute; 
+            top: 0px;
+            left:0px;
+            width: 200px;
+            height: 40px;
+            background-color:purple;
+            z-index:-1; /*此处只和sliderbar中的span比较上下层关系,span默认为0,不能和sliderbar比较*/
+        }
+    </style>
+
+    <!-- 引入js文件中的动画函数 -->
+    <script src="animate.js"></script>
+
+</head>
+<body>
+    <div class="sliderbar">
+        <span>←</span>
+        <div class="con">问题反馈</div>
+    </div>
+
+    <script>
+    //当我们鼠标经过sliderbar就会让con这个盒子滑动到左侧
+    //当我们鼠标离开sliderbar就会让con这个盒子滑动到右侧
+    var sliderbar=document.querySelector('.sliderbar');
+    var con=document.querySelector('.con');
+    //绑定事件
+    sliderbar.addEventListener('mouseenter',function(){
+        animate(con,-160,function(){    //动画函数
+            sliderbar.children[0].innerHTML='→';    //回调函数
+        })
+    })
+    sliderbar.addEventListener('mouseleave',function(){  
+        animate(con,0,function(){       //动画函数 回调函数
+            sliderbar.children[0].innerHTML='←';
+        })
+    })
+    </script>
+</body>
+</html>

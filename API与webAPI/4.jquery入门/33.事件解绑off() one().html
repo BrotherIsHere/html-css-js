@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .two,
+        .on{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+        }
+        .current {
+            
+            background-color: red;
+        }
+    </style>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <!-- 
+        $('p').off()//解绑p元素所有事件
+        $('p').off('click')//解绑p元素click事件
+        $('p').off('click','li')//解绑事件委托
+
+        $('p').one() //只执行一次
+
+     -->
+     <div class="on">on</div>
+     <div class="two">two</div>
+     <div class="four">good</div>
+     <ul>
+         <li>我们都是好孩子</li>
+         <li>我们都是好孩子</li>
+         <li>我们都是好孩子</li>
+         <li>我们都是好孩子</li>
+         <li>我们都是好孩子</li>
+     </ul>
+    <script>
+        //绑定多个事件
+        $('.on').on({
+                click:function(){
+                    $(this).css('background','red');
+                },
+                mouseenter:function(){
+                    $(this).css('background','green');
+                },
+                mouseleave:function(){
+                    $(this).css('background','blue');
+                }
+                
+            })
+        //1.3,如果数据处理程序相同
+        $('.two').on('mouseover mouseout',function(){  //元素间用空格
+            $(this).toggleClass('current');
+        })
+
+        //2.on可以实现事件委托(委派)
+        $('ul').on('click','li',function(){
+            alert(111);
+            //click是绑定在ul身上的,但是触发的对象是ul里面的小li
+        })
+        
+        //解绑某元素全部事件
+        $('.two').off();
+        //解绑元素某一事件
+        $('.on').off('click');
+        //解绑事件委托
+        $('ul').off('click','li');
+
+        //只执行一次
+        // $('.four').on('click',function(){
+        //     alert(33)
+        // })
+        $('.four').one('click',function(){
+            alert(33)
+        })
+
+    </script>
+</body>
+</html>

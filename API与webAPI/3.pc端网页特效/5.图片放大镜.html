@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 小图等大的盒子,内置遮挡层盒子,大图盒子.使用绝对定位将两个盒子定在
+        内部和右边,子绝父相给 小图样式加上相对定位position: relative */
+        .preview_img {
+            position: relative;
+            height: 400px;
+            width: 200px;
+            background-color: aqua;
+        }
+        /* 遮挡层 */
+        .small {
+            width: 200px;
+            height: 400px;
+        }
+        /* 在原先需要放大的图片上准备一个有颜色的遮挡层背景的盒子，
+            例如样式为 */
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(244, 236, 84);
+            opacity: 0.5; /* 半透明 */
+            border: 1px solid #ccc;
+            cursor: move; /*鼠标指针:移动*/
+        }
+        .big {
+            display: none;
+            position: absolute;
+            left: 210px;
+            top:0;
+            width: 800px;
+            height: 500px;
+            background-color: pink;
+            z-index: 999;  /*轩于最上层*/
+            border: 1px solid rgb(233, 4, 4);
+            overflow: hidden;  /*溢出盒子的部分不显示*/
+        }
+        /*给大图绝对定位,否则大图不移动*/
+        .bigImg {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 大盒子内置小图和两个盒子 -->
+    <div class="preview_img">
+        <img src="./img/big.jpeg" alt="" class="small">
+        <!-- 遮挡层 -->
+        <div class="mask"></div> 
+        <!-- 大图及盒子 -->
+        <div class="big">
+            <img src="./img/big.jpeg" alt="" class="bigImg">
+        </div>
+    </div>
+    <script>
+        // 获取元素
+        var preview_img=document.querySelector('.preview_img');
+        var mask=document.querySelector('.mask');
+        var big=document.querySelector('.big');
+        var bigImg=document.querySelector('.bigImg');
+        //鼠标移入显示两个盒子
+        preview_img.addEventListener('mouseover',function(){
+            mask.style.display='block';
+            big.style.display='block';
+        })
+        //鼠标移出隐藏两个盒子
+        preview_img.addEventListener('mouseout',function(){
+            mask.style.display='none';
+            big.style.display='none';
+        })
+        //鼠标移动事件
+        preview_img.addEventListener('mousemove',function(e){
+            var x=e.pageX-this.offsetLeft;  //鼠标在盒内坐标
+            var y=e.pageY-this.offsetTop;
+            // console.log(x,y);
+            var maskX=x-mask.offsetWidth/2;  //遮挡层得到的坐标
+            var maskY=y-mask.offsetHeight/2;
+            //遮挡层不能跑出盒子
+            //遮挡层右移动的最大距离
+            var maskXmax=preview_img.offsetWidth-mask.offsetWidth;
+            //遮挡层下移动的最大距离
+            var maskYmax=preview_img.offsetHeight-mask.offsetHeight;
+            if (maskX<=0){   //遮挡层最左移的坐标不小于0
+                maskX=0;
+            } else if (maskX>=maskXmax){ //最大移动距离
+                maskX=maskXmax;
+            }
+            if (maskY<=0){   //遮挡层最上移动的位置
+                maskY=0;
+            } else if (maskY>=maskYmax){   //最下移动的位置
+                maskY=maskYmax;
+            }
+            // console.log(maskX,maskY);
+            //遮挡层随鼠标移动
+            mask.style.left=maskX+'px';
+            mask.style.top=maskY+'px';
+            //大图随遮挡层移动
+            var bigImgXmax=big.offsetWidth-bigImg.offsetWidth; //大图移动的最大值
+            var bigImgYmax=big.offsetHeight-bigImg.offsetHeight;
+            //大图移动的距离=(大图移动的最大距离/遮挡层移动的最大距离)*遮挡层移动的距离
+            var bigImgX=bigImgXmax/maskXmax*maskX;
+            var bigImgY=bigImgYmax/maskYmax*maskY;
+            //得到大图随小图移动的位置
+            bigImg.style.left=bigImgX+'px';
+            bigImg.style.top=bigImgY+'px';
+        })
+
+
+    </script>
+</body>
+</html>

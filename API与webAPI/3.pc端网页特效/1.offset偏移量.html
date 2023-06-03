@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .father {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-left: 45px;
+        }
+        .w {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            margin: 0 auto 200px;
+            /* padding会撑开盒子 */
+            padding: 10px;
+            /* border 10px 无solid,是透明 */
+            border: 10px solid red ; 
+
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        offset系列相关属性可以动态得到该元素的位置(偏移)
+        element.offsetParent获得元素距离带有定位的父元素,没有定位返回body
+        element.offsetTop 返回元素相对带有定位父元素上方的偏移
+        element.offsetLeft 返回元素相对带有定位父元素左边框的偏移
+        element.offsetWidth 返回自身包括padding,边框,内容区的宽度
+        element.offsetHeight 返回自身包括padding,边框,内容区的高度
+        获得元素自身的大小(宽度高度)
+        注意,返回的数值都不带单位
+     -->
+     <div class="father">
+        <div class="son"></div>
+     </div>
+     <div class="w"></div>
+     <script>
+        var father=document.querySelector('.father');
+        var son=document.querySelector('.son');
+        //可以得到元素的偏移 位置 返回的不带单位的数值
+        // console.log(father.offsetTop);
+        console.log(father.offsetLeft);
+        //它以带有定位的上级为准,如果都没有,则为body为准
+        console.log(son.offsetLeft);
+        //得到元素的大小 宽度和高度 包含padding+border+width
+        var w=document.querySelector('.w');
+        console.log(w.offsetWidth);
+        console.log(w.offsetHeight);
+        // element.offsetParent获得元素距离带有定位的父元素,没有定位返回body
+        console.log(son.offsetParent);//返回带有定位的父级元素,没有返回body
+        console.log(son.parentNode); //返回父元素
+     </script>
+</body>
+</html>

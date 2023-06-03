@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //倒计时不能用时分秒直接相减,只能用时间戳,然后转为天时分秒
+        // d=parseInt(总秒数/60/60/24);
+        // h=parseInt(总秒数/60/60%24);
+        // m=parseInt(总秒数/60%60);
+        // s=parseInt(总秒数%60);
+
+        function countDown(time) {
+            var now = +new Date(); //现在时间
+            var intime = +new Date(time); //输入时间
+            var dtime = (intime - now) / 1000; //时间差(秒)
+            //转换为天时分秒
+            var d = parseInt(dtime / 60 / 60 / 24);
+            d = d < 10 ? "0" + d : d;
+            var h = parseInt(dtime / 60 / 60 % 24);
+            h = h < 10 ? '0' + h : h;
+            var m = parseInt(dtime / 60 % 60);
+            m = m < 10 ? '0' + m : m;
+            var s = parseInt(dtime % 60);
+            s = s < 10 ? "0" + s : s;
+            return d + '天' + h + '时' + m + '分' + s + '秒'
+        }
+        var date = new Date();
+        console.log(date);
+        console.log(countDown('2023-11-21 0:0:0'));
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

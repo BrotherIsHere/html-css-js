@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <!-- jQuery 筛选选择器
+    :first   $('li:first')  获取第一个li元素(0)
+    :last    $('li:last')  获取最后一个li元素
+    :eq(index)  $('li:eq(2)') 获取索引号为2 的元素
+    :odd   $('li:odd') 获取索引号奇数的元素
+    :even  $('li:even') 获取索引号偶数的元素
+    -->
+    <ul>
+        <li>1多个里面选几个</li>
+        <li>2多个里面选几个</li>
+        <li>3多个里面选几个</li>
+        <li>4多个里面选几个</li>
+        <li>5多个里面选几个</li>
+        <li>6多个里面选几个</li>
+    </ul>
+    <ol>
+        <li>1ol里面选几个</li>
+        <li>2ol里面选几个</li>
+        <li>3ol里面选几个</li>
+        <li>4ol里面选几个</li>
+        <li>5ol里面选几个</li>
+        <li>6ol里面选几个</li>
+    </ol>
+    <script>
+        $(function(){
+            //选第一个,改红色
+            $('ul li:first').css('color','red');
+            //选ul里的第三个
+            a=$('ul>li:eq(2)')
+            console.log(a);
+            //索引号为偶数
+            $('ul li:even').css('color','blue');
+        })
+        
+    </script>
+</body>
+</html>

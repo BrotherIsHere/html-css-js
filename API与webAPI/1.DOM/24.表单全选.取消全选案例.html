@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            margin: 100px auto;
+        }
+        table {
+            margin: 0 auto;
+        }
+        thead  tr {
+            height: 30px;
+            background-color: skyblue;
+            font-size: 12px;
+            color: white;
+        }
+        tbody tr {
+            height: 30px;
+            background-color: aliceblue;
+        }
+        .bg {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="j_cbAll">
+                    </th>
+                    <th>商品</th>
+                    <th>价钱</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iphone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iphone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iphone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iphone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iphone8</td>
+                    <td>8000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var trs=document.querySelector('tbody').querySelectorAll('tr');
+        for (var i=0;i<trs.length;i++){
+            trs[i].onmouseover=function(){
+                this.className='bg';
+            }
+            trs[i].onmouseout=function(){
+                this.className='';
+            }
+        }
+        var jAll=document.querySelector('#j_cbAll');
+        var jTrs=document.querySelector('#j_tb').querySelectorAll('input');
+        jAll.onclick=function(){
+            // console.log(this.checked);
+            for (var i=0; i<jTrs.length;i++){
+                jTrs[i].checked=this.checked;
+            }
+        }
+        for (var j=0;j<jTrs.length;j++){
+            jTrs[j].onclick=function(){
+                var flag=true;
+                for (var i=0;i<jTrs.length;i++){
+                    if (!jTrs[i].checked){
+                        flag=false;
+                        break;
+                    }
+                }
+                jAll.checked=flag
+            }
+        }
+    </script>
+</body>
+</html>

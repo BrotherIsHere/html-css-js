@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            padding: 10px;
+            border: 15px solid red;  /*不加solid red 为无边框*/
+            margin: 20px;
+        }
+    </style>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        //()为空是获取,(67)不为空是修改
+
+        //width() hight() 只匹配元素的width hight
+        //innerWidth() innerHight() 包含padding值
+        //outerWidth() outerHight() 包含padding和border
+        //outerWidth(true) outerHight(true) 包含padding+border+margin
+        
+        console.log($('div').width());  //200  width
+        // $('div').height(500);
+
+        console.log($('div').innerWidth()); //220  width+padding*2
+        // $('div').innerWidth(300);  //width:280
+
+        console.log($('div').outerWidth());  //250  solid red 不为空  width+(padding+border)*2
+                                              //solid为空 220   
+        // $('div').outerWidth(500);  //width:450
+
+        console.log($('div').outerWidth(true));  //290
+
+    </script>
+</body>
+</html>

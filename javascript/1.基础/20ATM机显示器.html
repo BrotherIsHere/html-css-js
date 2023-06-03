@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        sum=100
+        do {var num=prompt('请输入您要的操作:\n 1.存钱\n 2.取钱\n 3.显示余额\n 4.退出')
+        
+        if (num==1){
+            chong=prompt('存多少?')
+            sum+=parseFloat(chong)
+            alert('余额为'+sum)
+        }
+        if (num==2){
+            chong=prompt('取多少?')
+            sum-=parseFloat(chong)
+            alert('余额为'+sum)
+        }
+        if (num==3){
+            alert('余额为'+sum)
+        }
+    
+        if (num==4){
+            alert('您已退出!')
+            break
+        }
+        } while (true)
+    
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+        .one {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        .back {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            right: 30px;
+            bottom: 100px;
+            display: none;
+        }
+        
+        .container {
+            width: 900px;
+            height: 500px;
+            background-color: skyblue;
+            margin: 400px auto;
+        }
+    </style>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div class="one"></div>
+    <div class="back">返回顶部</div>
+    <div class="container"></div>
+    <script>
+        $(function(){
+            //设置或获取被卷去的头部 scrollTop()  / 被卷去的左侧 scrollLeft();
+            $(document).scrollTop(100); //设置加载开始位置
+
+            //页面滚动事件   页面卷去一定距离时显示'返回顶部'按钮
+            boxTop=$('.container').offset().top;  //盒子到顶部距离  放在函数外面执行一次,放函数内会重复执行
+            $(window).scroll(function(){          //页面滚动事件
+                if ($(document).scrollTop()>=boxTop){      //文档被卷去的距离大于盒子到顶部的距离时
+                    $('.back').fadeIn();  //淡入   或显示用show()
+                } else {
+                    $('.back').fadeOut();  //淡出   或隐藏用hide()
+                }
+            })
+
+            //返回顶部
+            $('.back').click(function(){
+                // $(document).scrollTop(0);  //直接返回顶部
+                //动画返回 $('只能是元素,不能是文档').animate(params,[speed],[easing],[fn])
+                $('body,html').stop().animate({  //如果想让Chrome和Firefox都支持的话，要把html和body都加上
+                    scrollTop:0      //滚动到0
+                },1000)
+            })
+
+        })
+    </script>
+</body>
+</html>

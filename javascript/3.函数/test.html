@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getone (){
+            var one=arguments[0]
+            for (k=1;k<arguments.length;k++){
+                if (arguments[k]>one){
+                    one=arguments[k];
+                }
+                // console.log(one);
+            }
+            return one
+        }
+        aa=(3,5,2,6,77,44,8,9)
+        ll=getone(aa)
+        console.log(ll);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

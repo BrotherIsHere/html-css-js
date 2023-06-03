@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.concat拼接字符串  等效+
+        var a1='red';
+        var a2='blue';
+        console.log(a1+a2);
+        console.log(a1.concat(a2,'green'));
+        //2.substr('截取的起始位置',长度) 字符串截取
+        var a3='abcdefghigklmnopq';
+        a4=a3.substr(3,2); //de
+        console.log(a4); //de
+        console.log(a3); //'abcdefghigklmnopq'
+        //3.slice('截取开始位置','结束位置')
+        console.log(a3.slice(3,5)); //d,e
+        //4.substring('截取开始位置','结束位置')不接受负值
+        console.log(a3.substring(3,5)); //de
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            /* 绝对定位,文档内的绝对位置不受其它影响,若前有position:relative则相对于前position绝对定位 */
+            position: absolute; 
+        }
+        body {
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./img/taobao.png" alt="">
+    <script>
+        //1,鼠标移动事件:mousemove
+        //2.页面移动,给document注册事件
+        //3.图片移动而且不占位置,使用绝对定位 position
+        //4.原理:鼠标移动获得坐标作为图片绝对定位的top和left的值即可
+
+        var img=document.querySelector('img');
+        //页面内移动,给页面注册事件
+        document.addEventListener('mousemove',function(e){
+            var x=e.pageX;  //获得文档的坐标,
+            var y=e.pageY;
+            // console.log(x,y);
+            img.style.left=x-30+'px'; //注意加px
+            img.style.top=y-25+'px';    //注意加px
+        })
+    </script>
+</body>
+</html>

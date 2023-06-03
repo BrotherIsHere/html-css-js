@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        ul {
+            list-style: none;
+
+        }
+        /* 大盒子 */
+        .king{
+            background-color: blueviolet;
+            width: 800px;
+            height: 100px;
+            padding: 10px;
+            margin-top: 10vh;
+            overflow: hidden;
+        }
+        .king ul li {
+            position: relative;
+            float: left;
+            width: 69px;
+            height: 69px;
+            margin: 10px;
+        }
+        .big{
+            display: none;
+            width: 224px;
+        }
+        /* 小图片样式 */
+        .small{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 69px;
+            height: 69px;
+            border-radius: 5px;
+        }
+       
+        /* 当前选中的小图片的样式 都归类到current类中*/
+        .king li.current{
+            width: 224px;
+        }
+        .king li.current .big{
+            display: block;
+        }
+        .king li.current .small{
+            display: none;
+        }
+
+
+    </style>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div class="king">
+        <ul>
+            <li class="current">
+                <a href="#">
+                    <img src="img/2.jpg" alt="" class="small">
+                    <img src="img/1.jpg" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/2.jpg" alt="" class="small">
+                    <img src="img/1.jpg" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/2.jpg" alt="" class="small">
+                    <img src="img/1.jpg" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/2.jpg" alt="" class="small">
+                    <img src="img/1.jpg" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/2.jpg" alt="" class="small">
+                    <img src="img/1.jpg" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:">
+                    <img src="img/2.jpg" alt="" class="small">
+                    <img src="img/1.jpg" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:">
+                    <img src="img/2.jpg" alt="" class="small">
+                    <img src="img/1.jpg" alt="" class="big">
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+    <script>
+        // 鼠标经过某个小li有两步操作:
+        //1,小li宽度变为224px,同时小图淡出,大图淡入
+        //2.其余兄弟小li变为69px,小图片淡入,大图淡出
+        
+        //自己编写的:
+        // $(function(){
+        //     //鼠标经过小li时
+        //     $('.king li').hover(function(){  //hover 悬停,一般是改样式.这应该用mouseover或mouseenter
+        //         //当前小li宽度变为224px,兄弟变为69px
+        //         $(this).css('width','224px').siblings().css('width','69px');
+        //         //当前小li中的(孙子)小图片不透明度变为0,其兄弟不透明度变为1
+        //         $(this).find('.small').fadeTo(100,0).siblings().fadeTo(100,1);
+        //         //当前小li的兄弟中的图片(孙子),大图片透明,小图片不透明
+        //         $(this).siblings().find(".big").fadeTo(100,0).siblings().fadeTo(100,1)  
+        //     },function(){})
+        // })
+
+        //教师的写法:
+        $(function(){
+            // 鼠标经过某个小li
+            $('.king li').mouseenter(function(){
+                //当前小li宽度变为224px,同时小图淡出,大图淡入
+                $(this).stop().animate({
+                    width:224
+                },200).find('.small').stop().fadeOut().siblings().stop().fadeIn();
+                //其余兄弟小li变为69px,小图片淡入,大图淡出
+                $(this).siblings().stop().animate({
+                    width:69
+                },200).find('.small').stop().fadeIn().siblings().stop().fadeOut();
+            })
+        })
+    </script>
+</body>
+</html>

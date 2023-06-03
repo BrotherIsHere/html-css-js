@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        //自定义或其他库中的$符号有时与jQuery中的$符号冲突的解决办法
+        //1.自定义$使用 例如 
+        function $(ele){
+            return document.querySelector(ele)
+        }
+        console.log($('div')); //<div></div>
+        // $.each();     //此时$与jQuery的$冲突,自定义中没有each()方法,想使用jQuery的each方法只能如下:
+        //2.$冲突时用jQuery
+        jQuery.each();
+        //3,或用其它字母来代替$或jQuery
+        //jQuery.noConflict()  //没有 冲突
+        var suibian=jQuery.noConflict()
+        suibian.each();
+        console.log(suibian('span'));; //jQuery对象
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1.替换字符 replace('原字符','替换为') 返回新字符串,不改变原来
+        var b1='hellomybrother';
+        console.log(b1.replace('h','w'));  //替换了第一个h
+        //所有o替换为3
+        
+        while(b1.indexOf('o')!=-1){
+            b1=b1.replace('o','3')
+        }
+        console.log(b1);
+
+        // 2.字符转换为数组 split('分割符')  与join相反(数组转为字符串)
+        arr=[1,2,3];
+       console.log(arr.join('+'))
+
+       str='abd,ddd,llkkl';
+       str1='afdsfdadfsfadfakfk';
+       console.log(str.split(','));
+       console.log(str1.split('a'));
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

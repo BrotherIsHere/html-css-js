@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str='andy';
+        console.log(str.length);  //4
+        //复杂数据类型(对象)才有属性和方法,简单数据类型为什么会有length属性呢?
+        //基本包装类型:就是把简单数据类型包装成为复杂数据类型,这样就有属性和方法了
+        //执行过程如下:
+        //1,生成临时变量,把简单类型包装成复杂数据类型
+        var temp=new string('andy');
+        //2,赋值给我们声明的变量
+        str=temp;
+        //3,销毁临时变量;
+        temp=null
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

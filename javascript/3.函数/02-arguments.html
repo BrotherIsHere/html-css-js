@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //arguments的使用,利用函数求几个数(不是数组)最大值
+        //arguments对象存储的是实际 传递给函数的参数，而不局限于函数声明所定义的参数列表
+        function getMax(){
+            var max=arguments[0];
+            for (var i=1;i<arguments.length;i++){
+                if (arguments[i]>max){
+                    max=arguments[i] 
+                }
+            }
+            return max
+        }
+        m=getMax(2,4,3,66,44,66,3)
+        console.log(m);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

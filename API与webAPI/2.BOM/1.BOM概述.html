@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- BOM(browser Object Model)浏览器对象模型,核心对象是window
+        BOM由一系列相关的对象构成,每个对象都提供了很多方法和属性
+        BOM缺乏统一标准,兼容性差
+        BOM的顶级对象是window是document的父级
+        window包含document location navigation screen history
+        在调用时可省略window
+
+     -->
+    <script>
+        // document.querySelector()
+        // //完整应为
+        // window.document.querySelector()
+        var num =10;
+        console.log(num);
+        //变量num实质变为window的一个属性
+        console.log(window.num);
+        //函数变为window的一个方法
+        function fn (){
+            console.log(11);
+        }
+        fn()
+        //变为方法
+        window.fn()
+        //window对像包含什么?打印一下
+        console.dir(window)
+    </script>
+</body>
+</html>

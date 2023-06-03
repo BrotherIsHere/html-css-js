@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li,
+        a{
+            text-decoration: none;
+            list-style: none;
+        }
+        .wrapper{
+           margin: 100px auto;
+           width: 400px;
+           height: 405px;
+           border: 1px solid pink;
+        }
+        #left {
+            float: left;
+            width: 100px;
+            height: 400px;
+        }
+        #left ul li{
+            width: 100px;
+            height: 44px;
+            border-bottom: 1px solid pink;
+            border-right: 1px solid pink;
+            line-height: 44px;
+            text-align: center;
+        }
+        img{
+            float: right;
+            width: 300px;
+            height: 405px;
+        }
+        li:hover{
+            background-color: plum;
+        }
+        #content div{
+            display: none;
+        }
+        #content div:first-child{
+            display: block;
+        }
+    </style>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="left">
+            <ul>
+                <li><a herf="#">女靴</a></li>
+                <li><a herf="#">雪地靴</a></li>
+                <li><a herf="#">冬裙</a></li>
+                <li><a herf="#">呢大衣</a></li>
+                <li><a herf="#">毛衣</a></li>
+                <li><a herf="#">棉服</a></li>
+                <li><a herf="#">女裤</a></li>
+                <li><a herf="#">羽绒服</a></li>
+                <li><a herf="#">牛仔裤</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <div><img src="img/1.jpg" alt="女靴"></div>
+            <div><img src="img/2.jpg" alt="雪地靴"></div>
+            <div><img src="img/Snipaste_2023-04-07_09-34-58.png" alt="冬裙"></div>
+            <div><img src="img/Snipaste_2023-04-07_09-36-01.png" alt="呢大衣"></div>
+            <div><img src="#" alt="毛衣"></div>
+            <div><img src="#" alt="棉服"></div>
+            <div><img src="#" alt="女裤"></div>
+            <div><img src="#" alt="羽绒服"></div>
+            <div><img src="#" alt="牛仔裤"></div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            // $('#content div').eq(0).css('display','block');
+            // $('#content div').eq(0).siblings('div').css('display','none');
+            $('#left ul li').mousemove(function(){
+                var index=$(this).index();
+                // // $('#content div').eq(index).css('display','block');
+                // // $('#content div').eq(index).siblings('div').css('display','none')
+                // //杀死所有
+                // $('#content div').hide();
+                // //留下自己
+                // $('#content div').eq(index).show();
+                //或者
+                // //显示自己
+                // $('#content div').eq(index).show();
+                // //隐藏兄弟
+                // $('#content div').eq(index).siblings().hide();
+                //链式编程
+                $('#content div').eq(index).show().siblings().hide();
+
+            })
+        })
+    </script>
+</body>
+</html>

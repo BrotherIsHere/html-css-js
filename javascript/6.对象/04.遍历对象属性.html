@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //对象属性是无序的,不能用for循环,for要使用计数器
+        //用for...in 语句,对数组或对象的属性进行循环操作
+        var obj={
+            name:'pink老师',
+            age:22,
+            sex:'男',
+            fn:function(){
+
+            }
+        }
+
+        for (var k in obj){
+            console.log(k);
+        }          //输出为属性名:name age sex fn
+
+        for (var m in obj){
+            console.log(obj[m]);  //m是变量不加''
+        }          //输出为属性值:pink老师 22 男 function(){}
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

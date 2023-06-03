@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <ul></ul>
+    <p>
+            我是文字
+        <span>
+            123
+        </span>
+    </p>
+    <script>
+        //获取元素内容 改变元素内容
+        //innerText和innerHTML区别
+
+        //1.innerText 不识别标签 提取时去除标签 换行 空格
+        var div=document.querySelector('div');
+        var ul=document.querySelector('ul');
+        var p=document.querySelector('p');
+
+        // div.innerText='今天是    星期三'
+        // ul.innerText='<strong>明天是<strong>星期四'
+        // console.log(p.innerText);
+
+        //2.innerHTML 识别标签 提取时保留标签 换行 空格
+        div.innerHTML='今天是 星期三'
+        ul.innerHTML='<strong>明天是  </strong>星期四'
+        console.log(p.innerHTML);
+
+        
+
+    </script>
+</body>
+</html>

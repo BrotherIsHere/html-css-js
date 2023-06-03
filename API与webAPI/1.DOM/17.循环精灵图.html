@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 利用无序列表造盒子,先去除所有的内.外边距 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* 把无序列表前的.去掉 */
+        li {
+            list-style: none;
+        }
+        .box {
+            width: 320px;
+            /* height: 400px; */
+            margin: 100px auto;
+            background-color: rgb(45, 29, 10);
+        }
+        .box li {
+            float: left;
+            /* 浮动 左对齐 */
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            margin: 15px ;
+            background: url(img/sprite.png) no-repeat;
+            /* background-position: 0 -180px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <!-- 利用for循环填充精灵图 -->
+    <script>
+        var lis=document.querySelectorAll('li');
+        for (var i=0;i<lis.length;i++){
+            var index=i*60;
+            lis[i].style.backgroundPosition='0 -'+index+'px';
+        }
+    </script>
+    
+
+</body>
+</html>

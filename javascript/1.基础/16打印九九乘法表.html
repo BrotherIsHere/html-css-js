@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //空字符串
+        var biao=''
+        //执行九次循环
+        for (var i=1;i<=9;i++){
+            //几次循环几次
+            for (var j=1;j<=i;j++){
+                //新字符串长度增加
+                biao+=j+'x'+i+'\t' //' '
+            }
+            //换行
+            biao+='\n'
+        }
+        console.log(biao);
+    </script>
+</body>
+</html>

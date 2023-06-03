@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <script>
+        //核心思路:用键盘事件检测用户是否按下s,搜索框获得焦点
+        //使用js里的focus() 获得焦点
+        var scarch=document.querySelector('input');
+        //keydown会将s字母打印到搜索框,所以应用keyup
+        // document.addEventListener('keydown',function(e){
+        //     //查找s键的kdyCode
+        //     console.log(e.keyCode);  //83
+        //     if (e.keyCode===83){
+        //         scarch.focus() //文本框获得焦点
+        //     }
+        // })
+
+        //keydown会将s字母打印到搜索框,所以应用keyup
+        document.addEventListener('keyup',function(e){
+            //查找s键的kdyCode
+            // console.log(e.keyCode);  //83
+            if (e.keyCode===83){
+                scarch.focus() //文本框获得焦点
+            }
+        })
+    </script>
+</body>
+</html>

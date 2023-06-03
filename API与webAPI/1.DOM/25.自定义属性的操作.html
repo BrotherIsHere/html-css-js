@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="domo" index="1" class="nav" bb="uu"></div>
+    <script>
+        // 1.获取属性值
+        // element.属性 获取内置属性(元素本身自带的属性)
+        // element.getAttribute('属性') 主要获取(程序员)自定义属性
+        
+        // 定位元素
+        var div=document.querySelector('div');
+        // 获取属性值
+        console.log(div.id);
+        // 获取自定交属性(get)
+        console.log(div.getAttribute('id'));
+        console.log(div.getAttribute('index'));
+
+        // 2.设置属性值
+        // element.属性='值'
+        // element.setAttribute('属性','值');
+
+        div.id='2';
+        div.className='nn';
+        // 用className
+        div.setAttribute('class','gg')
+        //用class原词
+        div.setAttribute('index','5');
+
+        // 3.移除属性
+        // element.removeAttribute('属性')
+        div.removeAttribute('bb');
+
+    </script>
+
+    
+</body>
+</html>

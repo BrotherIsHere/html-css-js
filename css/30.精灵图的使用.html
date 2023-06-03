@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 50px;
+            height: 50px;
+            /* background-color: pink; */
+            
+            margin: 100px auto;
+            /* 插入精灵图 */
+            background: url(./sprite.png);
+            background-position: 0px -60px;
+            /* 定位精灵的位置 */
+        }
+        .box2 {
+            width: 200px;
+            height: 90px;
+            /* background-color: rgb(190, 186, 186); */
+            margin: 150px auto;
+            /* background: url(./sprite.png) 0px -120px */
+            background: url(./sprite.png) no-repeat 0px -120px;
+            /* no-repeat 背景不重复 */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

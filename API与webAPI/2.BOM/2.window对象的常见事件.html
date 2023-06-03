@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- window.onload和DOMContenLoaded窗口加载事件 -->
+
+    <!-- 顺序执行,script不能放在button前 -->
+    <!-- window.onload是窗口加载事件,可放在前面 或head或外部-->
+    <!-- DOMContentLoaded事件触发时,仅当COM加载完毕,不包括样式,图片,flsh等等 -->
+    <script>
+        // window.onload=function(){
+        //     var btn=document.querySelector('button');
+        //     btn.addEventListener('click',function(){
+        //         alert('点击了')})
+        // }
+        //或者用监听方法
+        window.addEventListener('load',function(){
+            var btn=document.querySelector('button');
+            btn.addEventListener('click',function(){
+                alert('点击了')
+            })
+        })
+        window.addEventListener('load',function(){
+            alert('22')
+        })
+        //DOMContentLoaded DOM加载完毕就可执行
+        document.addEventListener('DOMContentLoaded',function(){
+            alert('我是DOMContentLoaded,我先弹出')
+        })
+    </script>
+    <button>点击</button>
+    <!-- <script>
+        var btn=document.querySelector('button');
+        btn.addEventListener('click',function(){
+            alert('点击了')
+        })
+    </script> -->
+</body>
+</html>

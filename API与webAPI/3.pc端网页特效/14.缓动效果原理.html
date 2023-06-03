@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            top: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        缓动动画就是让元素运动速度有所变化,最常见的是让速度慢慢停下来
+        思路:
+        1.让盒子每次移动的距离慢慢变小,速度就会慢慢落下来.
+        2.核心算法:(目标值-现在的位置)/10 做为每次移动的距离步长
+        3.停止的条件是:让当前盒子位置等于目标位置就停止定时器
+     -->
+     <div></div>
+     <button class="btn500">点击运动500</button>
+     <button class="btn800">点击运动800</button>
+
+     <script>
+        //(缓动)动画函数
+        function animate(obj,target,callback){   //元素 停止位置值  callback回调函数(结束时调用的函数)
+            //问题:点击qqqq越多,开启的定时器越多,移动的越快
+            //解决方法:先清除以前的定时器,只保留当前的定时器
+            // callback()  //普通函数,不是回调函数,结束调用才是回调函数 调用函数用()
+            clearInterval(obj.timer)
+            //将var timer变为obj.timer
+            obj.timer=setInterval(function() {  //间隔定时器
+                //步长值取整,大于0时往大取整Math.ceil,负数时往小取整;
+                var step= (target-obj.offsetLeft)/15;
+                step=step>0? Math.ceil(step) :Math.floor(step);
+                //定时器停止条件
+                if (obj.offsetLeft==target){
+                    // 停止定时器
+                    clearInterval(obj.timer);
+                    if (callback){
+                        callback();
+                    }
+                }
+                //把每次步长加固定值改为一个慢慢变小的值会实现缓动动画
+                obj.style.left=obj.offsetLeft+step+'px'; //盒子当前的位置
+            }, 30);
+        }
+
+        var div=document.querySelector('div')
+        var btn500=document.querySelector('.btn500');
+        var btn800=document.querySelector('.btn800');
+
+        //点击触发动画事件
+        btn500.addEventListener('click',function(){
+            animate(div,500);
+        })
+        
+        btn800.addEventListener('click',function(){
+            animate(div,800,function(){  //函数或回调函数
+                console.log(111);
+            });
+        })
+     </script>
+</body>
+</html>

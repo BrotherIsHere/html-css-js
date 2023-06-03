@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: none;
+            width: 200px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+    <script src="jQuery.min.js"></script>
+    <!-- 淡入淡出fade(逐渐)效果
+        fadeOut([speed,[easing],[fn]])
+        (1)参数都可省略
+        (2)speed(速度):三种速度之一的字符串('slow' 'normal' 'fast')或毫秒数1000;
+        (3)easing(使...小心缓缓移动):切换效果 默认swing(变速:慢快慢) 可选参数linear(线性,匀速)
+        (4)透明度:fadeTo([speed,opacity(不透明度),[easing],[fn])
+        (4)fn:回调函数    
+    -->
+</head>
+<body>
+    <button>淡入效果</button>
+    <button>淡出效果</button>
+    <button>淡入淡出</button>
+    <button>修改透明度</button>
+    <div></div>
+    <script>
+        $(function(){
+            $('button').eq(0).click(function(){
+                //淡入fadeIn()
+                $('div').fadeIn('normal')
+            })
+            $('button').eq(1).click(function(){
+                //淡出fadeOut()
+                $('div').fadeOut(1000,)
+            })
+            $('button').eq(2).click(function(){
+                //淡入fadeToggle()
+                $('div').fadeToggle(1000)
+            })
+            $('button').eq(3).click(function(){
+                //不透明度fadeTo()
+                $('div').fadeTo(100,0.2);
+            })
+        })
+    </script>
+</body>
+</html>

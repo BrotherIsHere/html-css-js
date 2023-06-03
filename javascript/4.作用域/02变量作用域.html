@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 一.全局变量
+        // 1.在全局作用域下的变量
+        // 2.在函数内部没有var声明直接使用的变量(不提倡使用)
+        // 二.局部变量
+        // 1.在局部作用域下的变量或者函数内部声明的变量是局部变量
+        // 2.函数的形参也可看作局部变量
+
+        // 三.执行效率
+        // 1.全局变量只有浏览器关闭的时候才会销毁,比较占内存
+        // 2.局部变量 当代码块执行完毕后就会销毁,节约内存
+        
+        // 四.js在es6之前没有块级作用域{},在块级作用域中的声明的变量是全局变量
+        //     if(){块级作用域} for  {}等等
+
+        var num = 30;  // num是全局变量
+        console.log(num);
+
+        function fn() {
+            console.log(num); //可以调用全局变量
+        }
+
+        function fun(aru) {  //函数形参也可看作局部变量
+            var num1 = 10; // 局部变量
+            num2 = 20; //全局变量(不建议使用),需执行函数一次
+        }
+
+        fun() //运行后,num2成为全局变量
+        console.log(num2);
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //转换为数字型
+        var sr='18px'
+        console.log(typeof sr);  //string
+        //1.parseInt(string) 转为整数
+        console.log(parseInt(sr));   //18
+        console.log(parseInt('kkk123'));  //NaN 
+        //2.parseFloat(string) 转为浮点数值
+        console.log(parseFloat(sr));  //18
+        //3.Number() 强制转换为数值型
+        console.log(Number('3344'));  //3344 
+        console.log(Number('3344abc'));  //NaN 
+        console.log(Number(sr));  //NaN 
+        //4.隐式转换,利用算术运算符
+        console.log('12'-0);
+    </script>
+</body>
+</html>

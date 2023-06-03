@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+
+    </ul>
+
+    <!-- 有序列表 -->
+    <h3>排行榜</h3>
+    <ol>
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+    </ol>
+    <script>
+        var lis=document.getElementsByTagName('li')
+        console.log(lis);
+        console.log(lis[0]);
+
+        for (i=0;i<lis.length;i++){
+            console.log(lis[i]);
+        }
+        //获取ol中的li
+        var ols=document.getElementsByTagName('ol');
+        var lis2=ols[0].getElementsByTagName('li');
+        console.log(lis2);
+
+    </script>
+    
+</body>
+</html>

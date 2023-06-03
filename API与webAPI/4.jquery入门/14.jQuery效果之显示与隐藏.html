@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <button>显示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+    <!-- 显示隐藏效果
+        show([speed,[easing],[fn]])
+        (1)参数都可省略
+        (2)speed(速度):三种速度之一的字符串('slow' 'normal' 'fast')或毫秒数1000;
+        (3)easing(使...小心缓缓移动):切换效果 默认swing(变速:慢快慢) 可选参数linear()
+        (4)fn:回调函数    
+    -->
+    <script>
+        
+        $(function(){
+            $('button').eq(0).click(function(){
+                $('div').stop().show('slow','linear');  //显示 stop() 停止(以前)的动画
+            });
+            $('button').eq(1).click(function(){
+                $('div').stop().hide(1000,function(){   //隐藏
+                    // alert(1);
+                });
+            });
+            $('button').eq(2).click(function(){
+                $('div').stop().toggle();                 //切换
+            });
+        })
+    </script>
+</body>
+</html>

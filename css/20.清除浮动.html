@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /* 清除浮动 2.父级添加overflow 属性即可 缺点:溢出隐藏*/
+            /* overflow: hidden; */
+
+            width: 800px;
+            border: 1px solid blue;
+            margin: 0 auto;
+        }
+
+        /* 清除浮动3.父级添加:atter伪元素 父级结构中引用该类 */
+        /* .clearfix:after {
+            content: '';
+            display: block;
+            height: 0;
+            clear: both;
+            visibility:hidden;
+        }
+        .clearfix { */
+            /* IE6.7专用 */
+            /* *zoom: 1;
+        } */
+
+        /* 清除浮动4.父级添加双伪元素 父级结构中引用该类 */
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+        }
+        .clearfix:after {
+            clear: both;
+        }
+        .clearfix {
+            *zoom: 1;
+        }
+
+        .damao {
+            float: left;
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+        }
+        .ermao {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .footer {
+            height: 200px;
+            background-color: black;
+        }
+        /* 清除浮动1.额外标签法(隔墙法) clear:left clear:right clear:both*/
+        /* 结构中添加块级标签并引用clear类 */
+        /* .clear {
+            clear:both;
+        } */
+    </style>
+</head>
+<body>
+    <!-- 先标准流的父元素定上下
+    后 浮动兄弟定左右 
+    浮动会压住后面的标准流,不影响前面的标准流
+    -->
+    <!-- 如果父级不适合给出固定高度,各元素都浮动了,父元素会变成一条线,影响后面排版
+    所以要清除浮动 -->
+    <!-- 清除浮动方法
+        1.额外标签法(隔墙法) 
+        2.父级添加overflow 属性
+        3.父级添加:atter伪元素
+        4.父级添加双伪元素-->
+
+    <div class="box clearfix">
+        <div class="damao">大毛</div>
+        <div class="ermao">二毛</div>
+        <!-- 清除浮动方式1,.额外标签法(隔墙法) 必须是块级元素不能行内元素-->
+        <!-- <div class="clear"></div> -->
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

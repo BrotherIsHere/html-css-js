@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1.push(参数) 在数组的末尾添加一个或者多个数组元素 push 推  
+        //返回值是数组长度
+        var arr=[1,5];
+                               //以前添加是arr[2]=4
+        arr.push(6,'f');
+        console.log(arr);
+        console.log(arr.push('小磊','ddd')); //返回数组长度 6
+        console.log(arr);             //原数组会变化
+
+        //2.unshift(参数) 在我们数组的开关添加一个或者多个数组元素
+        arr.unshift('red',"b")
+        console.log(arr);
+        console.log(arr.unshift('硒鼓','张家口'));  //返回长度
+        console.log(arr);
+         
+        //3.pop() 没有参数 它可以删除最后一个元素   pop 出去
+        arr.pop();   
+        console.log(arr);
+        console.log(arr.pop()); //返回值是删除的元素 '小磊'
+
+        //4.shift() 没有参数 它可以删除第一个元素   shift 去除
+        arr.shift();    //删除'硒鼓' 
+        console.log(arr);
+        console.log(arr.shift()); //返回值是删除的元素 '张家口'
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

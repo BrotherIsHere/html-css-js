@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <ul class="one">
+        <li>
+            <a href="http://www.webo.com/liuwayong">我的微博</a>
+        </li>
+        <li>
+            <a href="http://www.cnblogs.com/Wayou/">我的博客</a>
+        </li>
+        <li>
+            <a href="http://wayouliu.duapp.com/">我的小站</a>
+        </li>
+    </ul>
+    <p>这是p标签不是a标签，我不会受影响</p>
+    <ul class="two">
+        <li>
+            <a href="http://www.webo.com/liuwayong">我的微博</a>
+        </li>
+        <li>
+            <a href="http://www.cnblogs.com/Wayou/">我的博客</a>
+        </li>
+        <li>
+            <a href="http://wayouliu.duapp.com/">我的小站</a>
+        </li>
+    </ul>
+    
+    <!-- 
+        jQuery插件开发
+        完整内容在:https://www.cnblogs.com/ajianbeyourself/p/5815689.html
+                  https://www.cnblogs.com/Wayou/p/jquery_plugin_tutorial.html
+        jQuery插件开发方式主要有三种：
+            通过$.extend()来扩展(复制,合并到)jQuery
+            通过$.fn 向jQuery添加新的方法
+            通过$.widget()应用jQuery UI的部件工厂方式创建
+        通常我们使用第二种方法来进行简单插件开发，说简单是相对于第三种方式。
+        第三种方式是用来开发更高级jQuery部件的，该模式开发出来的部件带有很多jQuery内建的特性，
+        比如插件的状态信息自动保存，各种关于插件的常用方法等，非常贴心，这里不细说。
+        而第一种方式又太简单，仅仅是在jQuery命名空间或者理解成jQuery身上添加了一个
+        静态方法而以。所以我们调用通过$.extend()添加的函数时直接通过$符号调用
+        （$.myfunction()）而不需要选中DOM元素($('#example').myfunction())。
+        请看下面的例子。-->
+    <script>
+        $.extend({
+            sayHello: function(name) {
+            console.log('Hello,' + (name ? name : 'Dude') + '!');
+            }
+        })  
+        $.sayHello(); //调用  Hello,Dude
+        $.sayHello('Wayou'); //带参调用  Hello,Wayou
+    </script>
+    <!-- 但这种方式无法利用jQuery强大的选择器带来的便利，要处理DOM元素以及将插件
+        更好地运用于所选择的元素身上，还是需要使用第二种开发方式。你所见到或使用的
+        插件也大多是通过此种方式开发。
+    我们已经知道this指代jQuery选择器返回的集合，那么通过调用jQuery的.each()方法
+        就可以处理合集中的每个元素了，但此刻要注意的是，在each方法内部，this指带的是
+        普通的DOM元素了，如果需要调用jQuery的方法那就需要用$来重新包装一下。
+        比如现在我们要在每个链接显示链接的真实地址，首先通过each遍历所有a标签，然后获取
+        href属性的值再加到链接文本后面。更改后我们的插件代码为： 
+    -->
+    <script>
+        // $.fn.myPlugin = function() {
+        //     //在这里面,this指的是用jQuery选中的元素
+        //     this.css('color', 'red');  //利用隐形迭代 颜色改为红色
+        //     // this.append(' '+$(this).attr('href')); //错误,每个后面都加上了相同的'http://www.webo.com/liuwayong'
+        //     //正确如下:
+        //     return this.each(function() {  //通过对象上的方法最后加上return this，把对象再返回回来，对象就可以继续调用方法，实现链式操作了。
+        //     //对每个元素进行操作
+        //     $(this).append(' ' + $(this).attr('href'));
+        //     })
+        // }
+        // //运行这个插件
+        // $('.one a').myPlugin();
+
+        //改进一下
+        $.fn.myPlugin=function(options){    //添加到fn中,方便插件对元素的操作 用户自定义项options
+            var defaults={                  //默认值,方便options与defaults合并时覆盖默认,改为用户值
+                'color': 'red',
+                'fontSize': '12px'
+            };
+            var settings=$.extend({},defaults,options);   //合并后的用户值,为保护默认值,合并到jQuery空对象中并起名settings
+            return this.css({         //return this 返回对象,方便链式操作.//执行操作 使用用户值                    
+                'color':settings.color,
+                'fontSize':settings.fontSize
+            })
+        }
+        //调用插件
+        $('.one a').myPlugin({
+            'color':'green',
+        })
+    </script>
+
+    <!-- 面向对象的插件开发
+        为什么要有面向对象的思维，因为如果不这样，你可能需要一个方法的时候就去定义一个function，
+        当需要另外一个方法的时候，再去随便定义一个function，同样，需要一个变量的时候，毫无规则
+        地定义一些散落在代码各处的变量。
+        还是老问题，不方便维护，也不够清晰。当然，这些问题在代码规模较小时是体现不出来的。
+        如果将需要的重要变量定义到对象的属性上，函数变成对象的方法，当我们需要的时候通过
+        对象来获取，一来方便管理，二来不会影响外部命名空间，因为所有这些变量名还有方法名
+        都是在对象内部
+   
+    -->
+    <script>
+        /*函数可以形成一个作用域，域内的代码是无法被外界访问的。
+        如果我们将自己的代码放入一个函数中，那么就不会污染全局命名空间，同时不会和别的代码冲突。
+        我们将所有代码用自调用匿名函数(立即执行函数)包裹,(function(){})() 或者(function(){}())
+        
+        将系统变量以参数形式传递到插件内部也是个不错的实践
+        window等系统变量在插件内部就有了一个局部的引用，可以提高访问速度，会有些许性能的提升
+        为了得到没有被修改的undefined，我们并没有传递这个参数，但却在接收时接收了它，
+        因为实际并没有传，所以‘undefined’那个位置接收到的就是真实的'undefined'了
+        */
+        ;(function($, window, document,undefined) {  //我们在代码开头加一个分号防止别人的代码没有用分号结尾,引入我们的插件时报错了，我们的代码无法正常执行
+            //宝义构造函数,定义Beautifier的构造函数
+            var Beautifier = function(ele,opt) {      //方法操作元素ele(调用者$('.two')),opt:用户输入的对象
+                this.$element = ele,         //供方法使用 this为构造函数必加项,在此不同于$(this)
+                this.defaults = {        //构造函数的属性和方法前加this
+                    'color': 'red',
+                    'fontSize': '12px',
+                    'textDecoration': 'none'
+                },
+                this.options = $.extend({}, this.defaults, opt)  //合并后的用户对象数据
+            }
+            //构造函数添加(定义Beautifier的)方法
+            Beautifier.prototype = {     //prototype相当于共享文件夹,为实例化时减少占用内存,不实例到对象中,所有实例都可用
+                beautify:function() {    //beautify方法:改变字休的颜色,大小,下划线
+                    return this.$element.css({     //返回给调用者的数据,如写成this.css(实则是.css)则提示:not a function
+                        'color': this.options.color,
+                        'fontSize': this.options.fontSize,
+                        'textDecoration': this.options.textDecoration
+                    });
+                }
+            }
+            //以上是构造函数的属性和方法,下面使用它
+
+            //在插件中使用Beautifier对象(实例化)
+            $.fn.myPlugin = function(options) {  //添加到fn中,方便插件对元素的操作 用户自定义项options
+                //创建Beautifier的实体 this指调用它的元素 $('.two a')
+                var beautifier = new Beautifier(this,options);  //在这this实为($('.two'))
+                //调用其包含自定义选项的方法
+                return beautifier.beautify();
+            }
+        })(jQuery, window, document);
+
+        //调用插件
+        $('.two a').myPlugin({
+            'color':'black'
+        })        
+        
+
+    </script>
+
+</body>
+</html>

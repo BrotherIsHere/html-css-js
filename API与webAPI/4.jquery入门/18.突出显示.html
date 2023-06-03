@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background: #000;
+        }
+
+        .wrap {
+            margin: 100px auto 0;
+            width: 630px;
+            height: 394px;
+            padding: 10px 0 0 10px;
+            background: #000;
+            overflow: hidden;
+            border: 1px solid #fff;
+        }
+
+        .wrap li {
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+
+        .wrap img {
+            width: 200px;
+            height: 187px;
+            display: block;
+            border: 0;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li><a href="#"><img src="img/Snipaste_2023-04-07_09-34-58.png" alt=""></a></li>
+            <li><a href="#"><img src="img/Snipaste_2023-04-07_09-34-58.png" alt=""></a></li>
+            <li><a href="#"><img src="img/Snipaste_2023-04-07_09-34-58.png" alt=""></a></li>
+            <li><a href="#"><img src="img/Snipaste_2023-04-07_09-34-58.png" alt=""></a></li>
+            <li><a href="#"><img src="img/Snipaste_2023-04-07_09-34-58.png" alt=""></a></li>
+            <li><a href="#"><img src="img/Snipaste_2023-04-07_09-34-58.png" alt=""></a></li>
+
+        </ul>
+    </div>
+    <script>
+        //页面加载完毕后执行
+        $(function(){
+            //鼠标经过 hover(fn,fn)
+            $('.wrap li').hover(function(){
+                //动画必加stop,停止排队
+                $(this).siblings().stop().fadeTo('normal',0.2);
+            },function(){
+                //鼠标离开,兄弟不透明度变为原来1
+                $(this).siblings().stop().fadeTo('normal',1);
+            });
+            
+        })
+    </script>
+</body>
+</html>

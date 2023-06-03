@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //利用学过的对象,自己封装一个数学对象,里面有PI 最大值 最小值
+        var shu={
+            PI:3.14,
+            max:function(){
+                var zd=arguments[0];
+                for (var i=1;i<arguments.length;i++){
+                    if (arguments[i]>zd){
+                        zd=arguments[i]
+                    }
+                }
+                return zd;
+            },
+            min:function(){
+                var zx=arguments[0];
+                for (var j=1;j<arguments.length;j++){
+                    if (arguments[j]<zx){
+                        zx=arguments[j]
+                    }
+                }
+                return zx
+            }      
+        }
+
+        console.log(shu.PI);
+        console.log(shu.max(3,6,2,6,4));
+        console.log(shu.min(3,5,7,3,2,6));
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

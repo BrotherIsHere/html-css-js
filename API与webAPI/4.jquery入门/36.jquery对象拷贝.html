@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <!-- 
+        $.extend([deep],target,object1,[objectn])
+        //deep 设为true 是深拷贝 默认false浅拷贝
+        //target 目标对象
+        //object 待拷贝对象
+     -->
+     <script>
+        var target={
+            id:0,
+            name:'andy',
+            msg:{
+                like:'swing'
+            }
+        }
+        var obj={
+            id:2,
+            sex:'man ',
+            msg:{
+                age:18
+            }
+        }
+        //1.浅拷贝
+        $.extend(target,obj); //会覆盖同名数据 复杂数据msg修改
+        console.log(target);
+        //1,浅拷贝把原来对象里面的复杂数据类型地址拷贝给目标
+        target.msg.age=20; //会修改原始的数据
+        console.log(target);
+        console.log(obj);  //原始数据修改
+        //2,深拷贝,完全复制一份与原来无关,复杂数据中的内容也要复制.
+        // $.extend(true,target,obj);
+     </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //有一个对象,来判断是否有该属性  对象[属性名];
+        var obj={
+            age:18
+        }
+        if (obj['age']){
+            console.log('对象中有这个属性');
+        } else{
+            console.log('对象中没有这个属性');
+        }
+        //统计出现次数最多的字符的次数
+        var str='ababboekdnnabboebc';
+        var obStr={};
+        for (var i=0;i<str.length;i++){
+            if (obStr[str[i]]){
+                obStr[str[i]]++;
+            } else {
+                obStr[str[i]]=1;
+            }
+        }
+        console.log(obStr);
+        //哪个字符出现次数最多
+        var strmax=0;
+        var charname=''
+        for (var j in obStr){
+            if (obStr[j]>strmax){
+                strmax=obStr[j];
+                charname=j
+            }
+        }
+        console.log('出现次数最多的是'+charname+'  ,次数是:'+strmax);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

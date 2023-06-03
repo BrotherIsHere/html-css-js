@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <!-- 获取传递来的参数 -->
+    <script>
+        console.log(location.search);  //?uname=qqq;
+        //1,先去掉? substr('起始的位置',[截取几个字符,不添加为最后])
+        var params=location.search.substr(1);
+        console.log(params); //uname=qqq;
+        //2.用=分割健和值 split('=');
+        var arr=params.split('=');
+        var div=document.querySelector('div');
+        div.innerHTML='欢迎'+arr[1]+'同学的到来'
+
+    </script>
+</body>
+</html>

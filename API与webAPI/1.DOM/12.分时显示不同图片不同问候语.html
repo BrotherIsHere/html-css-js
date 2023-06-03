@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+    <img src=" " />
+    <script>
+        var date=new Date();
+        var hour=date.getHours();
+        var p=document.querySelector('p');
+        var img=document.querySelector('img');
+        if (hour<=12){
+            p.innerText='上午好';
+            img.src='../../html案例/image/1 (6).jpg';
+        } else if (hour<18){
+            p.innerText='下午好';
+            img.src='../../html案例/image/1 (7).jpg';
+        } else {
+            p.innerText='晚上好';
+            img.src='../../html案例/image/1 (8).jpg';
+        }
+    </script>
+    
+</body>
+</html>

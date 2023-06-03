@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // js引擎运行js分两步:1预解析 2代码执行
+        // 一.预解析:js引擎会把js里所有var和fnction提升到当前域的最前面
+            // 1.变量预解析(变量提升):把所有的变量声明提升到当前作用域的最前面,不提升赋值操作
+            // 2.函数预解析(函数提升):把所有的函数声明提升到当前作用域的最前面,不提升调用函数
+        // 二.代码执行;按书写的顺序从上向下执行
+
+        // 例1
+        console.log(num1); //结果为undefined
+        var num1=10;
+        // 运行过程:
+        // var num 变量提升 不提长赋值操作
+        // 按顺序执行代码
+        // console.log(num);  结果为undefined
+        // num=10;
+
+        // 例2
+        var num2=20
+        console.log(num2);结果为20,正确
+        // 运行过程:
+        // var num2; 变量提升
+        // num2=20;按顺序执行代码
+        // console.log(num2);结果为20,正确
+
+        // 例3
+        fn()  //当前作用域前后位置均可调用函数
+        function fn() {
+            var num3=30
+            console.log(num3);
+        }  //结果为30,正确
+
+        // 运行过程:
+        // function fn() {
+        //     var num3=30
+        //     console.log(num3);
+        // }           1函数声明提升
+        // fn()        2按顺序执行代码
+        // 函数前后调用效果相同
+
+        // 例4 函数表达式
+        fn1()  //结果错误 函数表达式只能在函数声明后调用
+        var fn1=function(){
+            var num4=40;
+            console.log(num4);
+        }
+        // 运行过程:
+        // var fn1; 1变量提升
+        //          2顺序执行代码
+        // fn1()    报错,没有此函数   
+        // fn1=function(){
+        //     var num4=40;
+        //     console.log(num4);
+        // }
+
+        // 例5 函数表达式
+        var fn1=function(){
+            var num4=40;
+            console.log(num4);
+        }
+        fn1()  //结果正确为40 函数表达式只能在函数声明后调用
+
+        // 运行过程:
+        // var fn1; 1变量提升
+        //          2顺序执行代码
+        // fn1=function(){
+        //     var num4=40;
+        //     console.log(num4);
+        // }
+        // fn1()    正确 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

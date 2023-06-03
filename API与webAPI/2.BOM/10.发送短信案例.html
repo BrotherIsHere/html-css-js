@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        案例分析
+        1.按钮点击后会禁用,disable为true,
+        2,同时button内容会变化,通过innerHTML修改,不是value
+        3.秒有变化 要用定时器
+        4.定义一个变量,在定时器里,为断递减
+        5.变量为0时,定时器停止,按钮复原
+     -->
+     手机号码: <input type="number"> <button>发送</button>
+     <script>
+        //1.获取元素
+        var btn=document.querySelector('button');
+        
+        var time=60;  //等待时间
+        var timeDown=null;
+        //2.注册事件
+        btn.addEventListener('click',function(){
+            btn.disabled=true;  //禁用按钮
+            //间隔定时器
+            timeDown=setInterval(function(){
+                if (time>0){
+                    time--;  //倒计时:间隔1秒减1;
+                    btn.innerHTML=time+'秒后重新发送';  //修改按钮文字
+                } else {
+                    btn.disabled=false;  //取消禁用按钮
+                    btn.innerHTML='发送';  //还原文字
+                    clearInterval(timeDown); //清除定时
+                    time=60; //还原时间60秒
+                }
+            },1000);
+        })
+        
+     </script>
+</body>
+</html>

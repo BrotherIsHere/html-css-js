@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1.绝对值方法
+        console.log(Math.abs(-3.5))
+        console.log(Math.abs('-3.5'))  //隐式转换:把字符串型自动转化为数字型
+        //2.三种取整方法
+        // (1) Math.floor()向下取整 往最小取值
+        console.log(Math.floor(1.1)); //1
+        console.log(Math.floor(1.9)); //1
+        console.log(Math.floor(-1.9)); //-2
+        // () Math.ceil()向上取整 往最大取值
+        console.log(Math.ceil(1.1)); //2
+        console.log(Math.ceil(1.9)); //2
+        console.log(Math.ceil(-1.9)); //-1
+        // (1) Math.round()四舍五入取值 .5往大取
+        console.log(Math.round(1.4)); //1
+        console.log(Math.round(1.5)); //2
+        console.log(Math.round(-1.1)); //-1
+        console.log(Math.round(-1.5)); //-1  注意这个是-1,  .5往大取
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

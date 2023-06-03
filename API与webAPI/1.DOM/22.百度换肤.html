@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 取消所有内外边距 */
+        body {
+            background: url(img/5.jpg) no-repeat;
+        }
+        /* 换肤实质是更换body的背景图片 */
+        li {
+            list-style: none;
+        }
+        /* 取消无序列表前的.点 */
+        .baidu{
+            overflow: hidden;
+            /* ???清除浮动? */
+            margin: 100px auto;
+            background-color: #fff;
+            width: 408px;
+            padding-top: 3px;
+            /* 内边距上3px */
+        }
+        .baidu li{
+            float: left;
+            /* 左浮动 */
+            margin: 0 1px;
+            /* 外边距 上下0左右1 */
+            cursor: pointer;
+            /* 光标:指针(指示链接的一只手) */
+        }
+        .baidu img{
+            width: 100px;
+            /* 显示出来的图片大小的意思 */
+        }
+    </style>
+</head>
+<body>
+    <ul class="baidu">
+        <li><img src="img/5.jpg" alt=""></li>
+        <li><img src="img/6.jpg" alt=""></li>
+        <li><img src="img/7.jpg" alt=""></li>
+        <li><img src="img/8.jpg" alt=""></li>
+    </ul>
+    <script>
+        // var lis=document.getElementsByTagName('li');
+        // for (var i=0;i<lis.length;i++){
+        //     lis[i].onclick=function(){
+        //         console.log(i);
+        //         // ???总是显示为4?,所以用this
+        //         document.body.style.backgroundImage="url("+this.querySelector('img').src+")"
+        //     }
+        // }
+
+        // 或用以下程序,直接定位img
+        var imgs=document.querySelector('.baidu').querySelectorAll('img');
+        for (i=0;i<imgs.length;i++){
+            imgs[i].onclick=function(){
+                document.body.style.backgroundImage='url('+this.src+')'
+                // 只能用this.src不能用下面这个imgs[i].src,否则只输出最后一张图
+                // document.body.style.backgroundImage='url('+imgs[i].src+')'
+
+            }
+        }
+    </script>
+</body>
+</html>

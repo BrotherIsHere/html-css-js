@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+        function f1(){
+            var a=b=c=9;  //相当于var a=9;b=9;c=9;b和c是全局变量(var a=9,b=9,c=9;abc是局部变量)
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }  //结果为:9,9,9,9,9,错误not fined
+
+        // 运行过程:
+        // 1,变量和函数提升
+        // function f1(){
+        //     3,内部提升
+        //     var a
+        //         4,顺序执行代码
+        //     a=b=c=9;  //相当于var a=9;b=9;c=9;b和c是全局变量(var a=9,b=9,c=9;abc是局部变量)
+        //     console.log(a);
+        //     console.log(b);
+        //     console.log(c);
+        // }
+        //                  2,顺序执行代码
+        // f1();
+        // console.log(c);
+        // console.log(b);
+        // console.log(a);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

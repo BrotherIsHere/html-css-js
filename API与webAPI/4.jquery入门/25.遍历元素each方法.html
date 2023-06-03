@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        $(function(){
+            //隐匿迭代:对同一类元素做同样的操作,都设为红色
+            // $('div').css('color','red');
+
+            //设为不同颜色,jQuery中比for更强大的是each()方法
+            //1.each()方法:
+                //$('div').each(function(index,domEle){})
+                //(1).each()方法遍历匹配每一个元素,主要用DOM处理.each每一个
+                //(2).里面的回调函数有两个参数:index是每个元素的索引号,domEle是每个DOM元素,不是jQuery对象
+                //(3).所以要使用jQuery方法,需要给这个dom元素转换为jQuery对象 $(domEle)
+            var arr=['red','green','blue'];
+            var sum=0;
+            $('div').each(function(i,domEle){
+                console.log(i,domEle);
+                //颜色改为红绿蓝
+                $(domEle).css('color',arr[i]);
+                //内容里面的数字相加的和 parseInt转为整数
+                sum+=parseFloat($(domEle).text());
+            })
+            console.log(sum);
+
+            //2.$.each()方法: 遍历任何对象,主要用于遍历数据,处理数据
+            //$.each(object,function(index,element){XXX})
+            $.each($('div'),function(i,ele){
+                console.log(i,ele);
+            })
+
+            //遍历数组
+            $.each(arr,function(i,el){
+                console.log(i,el);
+            })
+
+            //遍历对象
+            $.each({age:18,name:'andy',sex:'boy'},function(i,e){
+                console.log(i,e);  //获得属性名 属性值  age 18 ...
+            })
+
+        })
+
+    </script>
+</body>
+</html>
